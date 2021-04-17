@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# CHAS ACADEMY | ASSIGNMENT U09
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+~~[Live app preview]()~~
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+This assignment requires the developer to create a weather app using [ReactJS](https://reactjs.org/).
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**NODEJS**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To test if you have it, run `node -v`. If this outputs a version number (e.g. v15.x.x) you are good to go.
 
-### `npm test`
+If you don't have it installed visit [nodejs.org](https://nodejs.org/en/download/), download installer and follow instructions for you OS.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Local environment**
 
-### `npm run build`
+On build this project looks for an environment. Since environment variables are secret and should never be shared in public repos you will need to set it up yourself. Create a new file called `.env` in the project root. You can do this several ways, e.g.:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- vsc file browser: right-click -> new file and name it `.env`
+- macOS/Linux: `touch .env`
+- windows (cmd): `type nul > .env`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Edit `.env` file and insert:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `TBA`
 
-### `npm run eject`
+Then save and exit. Your environment setup is now done!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Local setup
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. download repo
+2. navigate to folder
+3. run `npm i` to install dependencies
+4. run `npm start` to serve website on [localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# App Functionallity
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Requirements
 
-## Learn More
+User must be able to see weather conditions for:
+- [ ] Temperature
+- [ ] Wind
+- [ ] Humidity
+- [ ] Sunrise/sunset (time)
+- [ ] switch between celsius (c) and farenheit (f)
+- [ ] get weather forecast (with above details) 5 days ahead:
+    - [ ] short weekly summary
+    - [ ] three hour intervals for current day
+    - [ ] five-day prognosis
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+App must also:
+- [ ] use weather API, e.g. SMHI, YR.NO, OpenWeatherMaps etc
+- [ ] use web browser goeloaction to get user position
+- [ ] design/colors based on [weather.com](http://weather.com/) or similar application(s)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Extra (optional)
 
-### Code Splitting
+- [ ] search for weather on specific location
+- [ ] save locations
+- [ ] graphs for:
+  - [ ] high/low temperatures
+  - [ ] average high/low temperatures
+- [ ] weather front on a radar map
+- [ ] average precipitation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Hand in
 
-### Analyzing the Bundle Size
+**Due date:** April 29th 2021
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+~~[Github repo]()~~
+and link to repo in LMS
