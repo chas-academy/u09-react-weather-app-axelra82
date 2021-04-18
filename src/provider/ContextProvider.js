@@ -3,7 +3,7 @@
 // around and not have to worry about prop-drilling
 import React, { useState, useEffect } from 'react';
 import Context from '../context/StoreContext';
-import responseTemplate from '../response-template.json';
+import responseTemplate from '../api/open-weather-map/response-template.json';
 
 const StoreContext = ({ children }) => {
 
