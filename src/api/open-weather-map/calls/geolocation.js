@@ -31,7 +31,7 @@ export default async (query) => {
 		// Error object
 		response = {
 			success: false,
-			message: `in call: ${error}`
+			message: error,
 		}
 	}
 
