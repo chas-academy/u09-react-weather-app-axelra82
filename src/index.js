@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './layouts/main';
+import { Main, Header, Footer } from './layout';
 import ContextProvider from './provider/ContextProvider';
 import './index.scss';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<ContextProvider>
-			<App />
+			<Header />
+			<Main />
+			<Footer />
 		</ContextProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
