@@ -1,7 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
-// import { getGeoLocation } from '../../../api/open-weather-map'
 import axios from 'axios';
 
 import './style.scss';
@@ -15,6 +14,7 @@ export default () => {
 				lon,
 				setLat,
 				setLon,
+				setCountry,
 				setName,
 			}
 		}
@@ -22,12 +22,23 @@ export default () => {
 
 	useEffect(() => {
 		const locationName = async() => {
-			// try {
-			// 	await getGeoLocation('reverse', {lat, lon});
-			// } catch (error) {
-			// 	console.log(error);
-			// }
-			axios('/api/calls/geolocation')
+			const settings = {
+				method: 'post',
+				url: '/.netlify/functions/openweathermap',
+				data: {
+					direction: 'reverse',
+					search: {
+						lat,
+						lon
+					}
+				}
+			};
+			
+			const getLocationName = await axios(settings);
+			const firstResult = getLocationName.data;
+			
+			setCountry(firstResult.country);
+			setName(firstResult.name);
 		}
 
 		const geoSuccess = position => {
