@@ -1,26 +1,27 @@
 // A simple hook based store
 // We can use this to pass detached states
 // around and not have to worry about prop-drilling
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Context from '../context/StoreContext';
+import responseTemplate from '../response-template.json';
 
 const StoreContext = ({ children }) => {
 
+	// States used in store for global
+	// location handling
 	const [lat, setLat] = useState(0);
-	const [long, setLong] = useState(0);
-	const [state, setState] = useState({
-		active: Boolean,
-		message: String,
-	});
-
-	// An object with our default states for our store context
+	const [lon, setLon] = useState(0);
+	
+	// Default location is always 0
+	// Data will come from API request
 	const store = {
-		lat,
-		setLat,
-		long,
-		setLong,
-		state,
-		setState,
+		location: {
+			lat,
+			lon,
+			setLat,
+			setLon
+		},
+		data: responseTemplate,
 	};
 
 	return (
