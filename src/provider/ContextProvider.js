@@ -1,7 +1,7 @@
 // A simple hook based store
 // We can use this to pass detached states
 // around and not have to worry about prop-drilling
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Context from '../context/StoreContext';
 import responseTemplate from '../api/open-weather-map/response-template.json';
 

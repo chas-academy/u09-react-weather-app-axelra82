@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
 import { getGeoLocation } from '../../api/open-weather-map'
@@ -38,6 +39,8 @@ export default () => {
 		if(lat === 0 && lon === 0){
 
 		}
+		
+		/* eslint-disable-next-line react-hooks/exhaustive-deps */
 	}, []);
 
 	const doSearch = async (e) => {

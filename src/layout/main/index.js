@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
 
