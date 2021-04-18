@@ -23,7 +23,7 @@ export default () => {
     return(
         <article>
             <p>
-                <strong>{store.location.name}</strong>
+                <strong>{store.location.name}, {store.location.country}</strong>
             </p>
             <p>
                 {time}
