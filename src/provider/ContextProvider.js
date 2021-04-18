@@ -3,23 +3,25 @@
 // around and not have to worry about prop-drilling
 import React, { useState } from 'react';
 import Context from '../context/StoreContext';
-import responseTemplate from '../api/open-weather-map/response-template.json';
+import responseTemplate from '../response-template.json';
 
 const StoreContext = ({ children }) => {
 
 	// States used in store for global
 	// location handling
-	const [lat, setLat] = useState(0);
-	const [lon, setLon] = useState(0);
+	const [lat, setLat] = useState(null);
+	const [lon, setLon] = useState(null);
+	const [name, setName] = useState('');
 	
-	// Default location is always 0
 	// Data will come from API request
 	const store = {
 		location: {
 			lat,
 			lon,
 			setLat,
-			setLon
+			setLon,
+			name,
+			setName,
 		},
 		data: responseTemplate,
 	};

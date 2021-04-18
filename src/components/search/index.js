@@ -1,11 +1,13 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
-import { getGeoLocation } from '../../api/open-weather-map'
+// import { getGeoLocation } from '../../../api/open-weather-map'
+import axios from 'axios';
+
 import './style.scss';
 
 export default () => {
-	
+
 	const {
 		store: {
 			location: {
@@ -13,11 +15,21 @@ export default () => {
 				lon,
 				setLat,
 				setLon,
+				setName,
 			}
 		}
 	} = useContext(StoreContext);
 
 	useEffect(() => {
+		const locationName = async() => {
+			// try {
+			// 	await getGeoLocation('reverse', {lat, lon});
+			// } catch (error) {
+			// 	console.log(error);
+			// }
+			axios('/api/calls/geolocation')
+		}
+
 		const geoSuccess = position => {
 			setLat(position.coords.latitude);
 			setLon(position.coords.longitude);
@@ -31,6 +43,10 @@ export default () => {
 
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+
+			if(lat && lon){
+				locationName();
+			}
 		}else{
 			alert('Geolocation does not appear to be supported in this browser.');
 		}
@@ -39,9 +55,9 @@ export default () => {
 		if(lat === 0 && lon === 0){
 
 		}
-		
+
 		/* eslint-disable-next-line react-hooks/exhaustive-deps */
-	}, []);
+	}, [lat,lon]);
 
 	const doSearch = async (e) => {
 		e.preventDefault();
@@ -49,14 +65,14 @@ export default () => {
 		// console.log(str);
 
 		if(str) {
-			const location = await getGeoLocation(str);
-			console.log(location);
+			// const location = await getGeoLocation('direct', str);
+			// console.log(location);
 
-			if(typeof location !== 'undefined'){
-				if(location.length > 1){
-					// Found more
-				}
-			}
+			// if(typeof location !== 'undefined'){
+			// 	if(location.length > 1){
+			// 		// Found more
+			// 	}
+			// }
 		}
 	}
 
