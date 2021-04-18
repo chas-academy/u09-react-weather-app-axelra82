@@ -14,6 +14,7 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "netlify_dev": "netlify dev",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "serve": "serve build"
