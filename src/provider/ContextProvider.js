@@ -11,6 +11,7 @@ const StoreContext = ({ children }) => {
 	// location handling
 	const [lat, setLat] = useState(null);
 	const [lon, setLon] = useState(null);
+	const [country, setCountry] = useState('');
 	const [name, setName] = useState('');
 	
 	// Data will come from API request
@@ -20,6 +21,8 @@ const StoreContext = ({ children }) => {
 			lon,
 			setLat,
 			setLon,
+			country,
+			setCountry,
 			name,
 			setName,
 		},
