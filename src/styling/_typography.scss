@@ -90,6 +90,17 @@ strong,
 	font-size: 0.465rem !important;
 }
 
+// Text Alignment
+.text-center {
+	text-align: center !important;
+}
+.text-left {
+	text-align: left !important;
+}
+.text-right {
+	text-align: right !important;
+}
+
 // Media switches
 @include media-sm {
 	html,
