@@ -1,0 +1,22 @@
+/* Global styling */
+@import '/node_modules/weather-icons/css/weather-icons.min.css';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	// Make sure long words break
+	// rather than expand the box
+	word-wrap: break-word;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+// Custom styles
+@import './media';
+@import './colors';
+@import './gradients';
+@import './typography';
+@import './layout';

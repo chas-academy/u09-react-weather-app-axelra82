@@ -1,0 +1,23 @@
+@import '../../styling/colors';
+
+#location-search{
+    input{
+        border-radius: .375rem 0 0 .375rem;
+        font-size: 1rem;
+        border: 1px solid rgba($black, .2);
+        border-right: none;
+        padding: .375rem .675rem;
+    }
+    button{
+        border-radius: 0 .375rem .375rem 0;
+        font-size: 1rem;
+        border: 1px solid rgba($black, .2);
+        padding: .375rem .675rem;
+        cursor: pointer;
+        transition: .35s all;
+
+        &:hover{
+            background: rgba($black, .025);
+        }
+    }
+}

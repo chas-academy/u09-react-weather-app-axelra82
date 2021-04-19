@@ -1,0 +1,30 @@
+.container {
+	width: 100vw;
+	padding: 2rem 1rem;
+	margin: 0 auto;
+}
+
+.card{
+    border-radius: .375rem;
+    padding: 1rem 2rem;
+    color: $white;
+    
+    .main{
+
+        &.extras{
+            //background: rgba($white, .1);
+        }
+    }
+}
+
+@include media-lg {
+	.container {
+		width: 920px;
+	}
+}
+
+@include media-xl {
+	.container {
+		width: 1140px;
+	}
+}

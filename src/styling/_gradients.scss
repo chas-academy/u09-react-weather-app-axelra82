@@ -1,0 +1,31 @@
+.gradient{
+
+    &.day {
+        &.clear{
+            background: linear-gradient($day-clear-top, $day-clear-bottom);
+        }
+        
+        &.fog{
+            background: linear-gradient($day-fog-top, $day-fog-bottom);
+        }
+        
+        &.cloudy{
+            background: linear-gradient($day-cloudy-top, $day-cloudy-bottom);
+        }
+    }
+    
+    &.night {
+        &.clear{
+            background: linear-gradient($night-clear-top, $night-clear-bottom);
+        }
+        
+        &.fog{
+            background: linear-gradient($night-fog-top, $night-fog-bottom);
+        }
+        
+        &.cloudy{
+            background: linear-gradient($night-cloudy-top, $night-cloudy-bottom);
+        }
+    }
+
+}
