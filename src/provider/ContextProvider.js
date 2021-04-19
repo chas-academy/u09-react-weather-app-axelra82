@@ -9,6 +9,13 @@ const StoreContext = ({ children }) => {
 
 	// States used in store for global
 	// location handling
+	// @Units: metric | imperial | standard*
+	// * if no unit value is present durring api call standard will be used
+
+	const [units, setUnits] = useState({
+		unit: 'metric',
+		representation: 'C'
+	});
 	const [lat, setLat] = useState(null);
 	const [lon, setLon] = useState(null);
 	const [country, setCountry] = useState('');
@@ -16,6 +23,8 @@ const StoreContext = ({ children }) => {
 	
 	// Data will come from API request
 	const store = {
+		units,
+		setUnits,
 		location: {
 			lat,
 			lon,
