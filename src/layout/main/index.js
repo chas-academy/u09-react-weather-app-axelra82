@@ -8,7 +8,10 @@ export default () => {
 	
 	const {
 		store:{
-			units,
+			unit: {
+				current: currentUnit,
+				options: unitOptions,
+			},
 			location: {
 				name: locationName,
 				country: locationCountry,
@@ -32,6 +35,8 @@ export default () => {
 		}
 	} = useContext(StoreContext);
 	
+	const unit = unitOptions.find(unit => unit.value === currentUnit);
+
 	const getTime = (timestamp) => {
 		// new Date(store.data.current.dt * 1000).toLocaleTimeString()
 		return typeof timestamp !== 'undefined' ?
@@ -76,20 +81,20 @@ export default () => {
 					<i className={`wi wi-owm-${weatherId}`}></i>
 				</div>
 				<h2>
-					{currentTemp}&deg; {units.representation}
+					{currentTemp}&deg; {unit.symbol}
 				</h2>
 				<div className="text-small">
-					Feels like {currentFeelLike} &deg;{units.representation}        
+					Feels like {currentFeelLike} &deg;{unit.symbol}        
 				</div>
 				<h4>
-					{todayMinTemp}&deg; {units.representation} | {todayMaxTemp}&deg; {units.representation}
+					{todayMinTemp}&deg; {unit.symbol} | {todayMaxTemp}&deg; {unit.symbol}
 				</h4>
 				
 					
 				<div className="main extras">
 					<div>
 						<i className='wi wi-strong-wind'></i>
-						Wind {currentWindSpeed} {units.unit === 'metric' ? 'm/s' : 'mph'}
+						Wind {currentWindSpeed} {unit.speed}
 					</div>
 					<div>
 						<i className='wi wi-humidity'></i>
