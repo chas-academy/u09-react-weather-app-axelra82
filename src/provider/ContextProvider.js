@@ -8,7 +8,7 @@ import responseTemplate from '../response-template.json';
 const StoreContext = ({ children }) => {
 
 	// States used in store for global
-	// location handling
+	// location, metric and data handling
 	// @Units: metric | imperial | standard*
 	// * if no unit value is present durring api call standard will be used
 
@@ -29,8 +29,12 @@ const StoreContext = ({ children }) => {
 	});
 	const [lat, setLat] = useState(null);
 	const [lon, setLon] = useState(null);
+	
 	const [country, setCountry] = useState('');
 	const [name, setName] = useState('');
+	
+	const [tod, setTod] = useState(null);
+	const [gradient, setGradient] = useState(null);
 	
 	// Data will come from API request
 	const store = {
@@ -45,6 +49,12 @@ const StoreContext = ({ children }) => {
 			setCountry,
 			name,
 			setName,
+		},
+		classes: {
+			tod,
+			setTod,
+			gradient,
+			setGradient,
 		},
 		data: responseTemplate,
 	};
