@@ -12,9 +12,20 @@ const StoreContext = ({ children }) => {
 	// @Units: metric | imperial | standard*
 	// * if no unit value is present durring api call standard will be used
 
-	const [units, setUnits] = useState({
-		unit: 'metric',
-		representation: 'C'
+	const [unit, setUnit] = useState({
+		current: 'metric',
+		options: [
+			{
+				value: 'metric',
+				symbol: 'C',
+				speed: 'm/s',
+			},
+			{
+				value: 'imperial',
+				symbol: 'F',
+				speed: 'mph',
+			}
+		]
 	});
 	const [lat, setLat] = useState(null);
 	const [lon, setLon] = useState(null);
@@ -23,8 +34,8 @@ const StoreContext = ({ children }) => {
 	
 	// Data will come from API request
 	const store = {
-		units,
-		setUnits,
+		unit,
+		setUnit,
 		location: {
 			lat,
 			lon,
