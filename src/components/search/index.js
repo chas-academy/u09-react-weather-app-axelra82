@@ -92,11 +92,9 @@ export default () => {
 	}
 
 	return(
-		<section className='container'>
-			<form onSubmit={doSearch} id='location-search'>
-				<input name='searchString' type='text' placeholder='Location' />
-				<button type='submit'>Search</button>
-			</form>
-		</section>
+		<form onSubmit={doSearch} id='location-search'>
+			<input name='searchString' type='text' placeholder='Location' />
+			<button type='submit'>Search</button>
+		</form>
 	);
 }

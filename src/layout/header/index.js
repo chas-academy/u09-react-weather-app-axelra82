@@ -8,9 +8,11 @@ import './style.scss';
 export default () => {
 
     return(
-        <>
-            <UnitSwitch />
-            <Search />
-        </>
+        <header>
+            <section className='container'>
+                <Search />
+                <UnitSwitch />
+		    </section>
+        </header>
     );
 }
