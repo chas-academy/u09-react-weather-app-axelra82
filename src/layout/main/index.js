@@ -5,37 +5,110 @@ import StoreContext from '../../context/StoreContext';
 import './style.scss';
 
 export default () => {
-    
-    const {store} = useContext(StoreContext);
-    
-    const time = typeof store.data.current.dt !== 'undefined' ?
-    new Date(store.data.current.dt * 1000).toTimeString()
-    // new Date(store.data.current.dt * 1000).toLocaleTimeString()
-    :
-    null;
+	
+	const {
+		store:{
+			units,
+			location: {
+				name: locationName,
+				country: locationCountry,
+				lat,
+				lon,
+			},
+			data: {
+				current: {
+					dt: currentTime,
+					temp: currentTemp,
+					feels_like: currentFeelLike,
+					wind_speed: currentWindSpeed,
+					pressure: currentPressure,
+					humidity: currentHumidity,
+					dew_point: currentDewPoint,
+					uvi: currentUvIndex,
+					weather: currentWeatherDetails
+				},
+				daily
+			}
+		}
+	} = useContext(StoreContext);
+	
+	const getTime = (timestamp) => {
+		// new Date(store.data.current.dt * 1000).toLocaleTimeString()
+		return typeof timestamp !== 'undefined' ?
+		new Date(timestamp * 1000).toUTCString()
+		:
+		null;
+	}
 
-    const temp = store.data.current.temp;
+	const today = daily[0];
 
-    // useEffect(() => {
-    //     console.log(store);
-    // }, [store]);
+	const {
+		sunrise,
+		sunset,
+		temp: {
+			min: todayMinTemp,
+			max: todayMaxTemp,
+		}
+	} = today;
 
-    return(
-        <article>
-            <p>
-                <strong>{store.location.name}, {store.location.country}</strong>
-            </p>
-            <p>
-                {time}
-            </p>
-            <div>
-                Temp {temp}
-            </div>
+	const {
+		id: weatherId, //800,
+		main: weatherTitle, //Clear
+		description: weatherDescription, //clear sky
+		icon: weatherIcon, //01d
+	} = currentWeatherDetails[0];
 
-            <br />
-            Lat: {store.location.lat}
-            <br />
-            Long: {store.location.lon}
-        </article>
-    )
+	return(
+		<section className='container'>
+			<article className='card main gradient day clear'>
+				<h1>{locationName}, {locationCountry}</h1>
+				<div className="text-small">
+					<p>
+						Lat: {Math.round(lat * 100)/100}, Lon: {Math.round(lon * 100)/100}
+					</p>
+
+					<p>
+						As of {getTime(currentTime)}
+					</p>
+				</div>
+				<h1>{weatherTitle}</h1>
+				<div>
+					<i className={`wi wi-owm-${weatherId}`}></i>
+				</div>
+				<h2>
+					{currentTemp}&deg; {units.representation}
+				</h2>
+				<div className="text-small">
+					Feels like {currentFeelLike} &deg;{units.representation}        
+				</div>
+				<h4>
+					{todayMinTemp}&deg; {units.representation} | {todayMaxTemp}&deg; {units.representation}
+				</h4>
+				
+					
+				<div className="main extras">
+					<div>
+						<i className='wi wi-strong-wind'></i>
+						Wind {currentWindSpeed} {units.unit === 'metric' ? 'm/s' : 'mph'}
+					</div>
+					<div>
+						<i className='wi wi-humidity'></i>
+						Humidity {currentHumidity}%
+					</div>
+					<div>
+						<i className='wi wi-barometer'></i>
+						Pressure {currentPressure}hPa
+					</div>
+					<div>
+						<i className='wi wi-horizon-alt'></i>
+						Sunrise {getTime(sunrise)}
+					</div>
+					<div>
+						<i className='wi wi-horizon'></i>
+						Sunset {getTime(sunset)}
+					</div>
+				</div>
+			</article>
+		</section>
+	);
 }
