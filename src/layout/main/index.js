@@ -63,6 +63,8 @@ export default () => {
 		icon: weatherIcon,
 	} = currentWeatherDetails[0];
 
+	// Use weather icon in response to determine if it's day or night
+	// Where d represents 'day' and n represents 'night'
 	const tod = weatherIcon.includes('d') ? 'day' : 'night';
 
 	return(
