@@ -1,0 +1,46 @@
+@import '../../styling/colors';
+
+#weather-container{
+    text-align: center;
+    display: grid;
+    grid-template-areas: "top" "mid";
+
+    #weather-container-top{
+        grid-area: top;
+    }
+    
+    #weather-container-mid{
+        grid-area: mid;
+        display: grid;
+        grid-template-areas: "mid-title" "mid-temp";
+        
+        h1#icon-title{
+            grid-area: mid-title;
+        }
+        
+        #temp{
+            grid-area: mid-temp;
+            
+            display: flex;
+            justify-content: center;
+
+            h2#temp-main{
+                font-size: 20vw;
+                margin-right: 1rem;
+            }
+            
+            #temp-hi-lo{
+                align-self: center;
+
+                #temp-hi{
+                    border-bottom: 1px solid rgba($white, .5);
+                    padding-bottom: .375rem;
+                }
+                
+                #temp-lo{
+                    padding-top: .375rem;
+                }
+            }
+        }
+    }
+}

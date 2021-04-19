@@ -1,6 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
+import Location from '../search';
+
+import './style.scss';
 
 export default () => {
 	
@@ -13,8 +16,6 @@ export default () => {
 			location: {
 				name: locationName,
 				country: locationCountry,
-				lat,
-				lon,
 			},
             classes: {
                 tod,
@@ -53,7 +54,7 @@ export default () => {
 					hour: '2-digit',
 					minute: '2-digit'
 				}
-			);
+			).toLowerCase();
 
 			const day = date
 			.toLocaleDateString(
@@ -71,7 +72,6 @@ export default () => {
 	}
 
 	const today = daily[0];
-
 	const {
 		sunrise,
 		sunset,
@@ -92,35 +92,56 @@ export default () => {
     // Where d represents 'day' and n represents 'night'    
     const getTod = weatherIcon.includes('d') ? 'day' : 'night';
 
+    const tempRound = (temp) => {
+        return Math.floor(temp);
+    }
+
     useEffect(() => {
         setTod(getTod);
         setGradient(weatherTitle.toLowerCase());
     }, []);
 
 	return(
-		<article>
-            <h1>{locationName}, {locationCountry}</h1>
-            <div className='text-small'>
-                <p>
-                    Lat: {Math.round(lat * 100)/100}, Lon: {Math.round(lon * 100)/100}
-                </p>
-
-                <p>
+		<section id='weather-container'>
+            <article id='weather-container-top' className="mb-3">
+                <span className="text-small fw-thin">{locationCountry}</span>
+                <h1 className='mb-0 h2'>
+                    {locationName}
+                </h1>
+                <div className='fw-thin ts-medium'>
                     {getTime(currentTime, true)}
-                </p>
-            </div>
+                </div>
+            </article>
 
-            <h2>
-                <i className={`wi wi-owm-${tod}-${weatherId}`}></i>
-                {currentTemp}&deg; {unit.symbol}
-            </h2>
+            {/* <Location /> */}
+
+            <article id='weather-container-mid'>
+            
+                <h1 id='icon-title' className='h4 fw-regular'>
+                    {weatherTitle} <i className={`wi wi-owm-${tod}-${weatherId}`}></i>
+                </h1>
+                
+                <section id='temp'>
+                    
+                    <h2 id='temp-main'>
+                        {tempRound(currentTemp)}&deg;{unit.symbol}
+                    </h2>
+
+                    <div id='temp-hi-lo' className='ts-medium fw-thin'>
+                        <div id='temp-hi'>
+                            <i className='wi wi-direction-up'></i> {tempRound(todayMaxTemp)}&deg;{unit.symbol}
+                        </div>
+                        <div id='temp-lo'>
+                            <i className='wi wi-direction-down'></i> {tempRound(todayMinTemp)}&deg;{unit.symbol}
+                        </div>
+                    </div>
+                </section>
+            </article>
 
             <div>
-                Feels like {currentFeelLike} &deg;{unit.symbol}. {weatherTitle}. {weatherDescription}
+                Feels like {currentFeelLike} &deg;{unit.symbol}. {weatherDescription}
             </div>
-            <div>
-                <i className='wi wi-direction-up'></i> Hi: {todayMinTemp}&deg; {unit.symbol}, <i className='wi wi-direction-down'></i> Lo: {todayMaxTemp}&deg; {unit.symbol}
-            </div>
+            
 
             <div>
                 <div>
@@ -147,6 +168,6 @@ export default () => {
                     Pressure {currentPressure}hPa
                 </div>
             </div>
-        </article>
+        </section>
 	);
 }
