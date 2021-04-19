@@ -29,7 +29,7 @@ export default () => {
 	};
 	
 	return(
-		<>
+		<div id="unit-switch-buttons">
 			<button
 				className={`info outline text-tiny ${current === 'metric' ? 'active' : ''}`}
 				onClick={() => buttonClick(metric.value)}
@@ -42,6 +42,6 @@ export default () => {
 			>
 				{farenheit.value}: &deg;{farenheit.symbol}, {farenheit.speed}
 			</button>
-		</>
+		</div>
 	);
 }
