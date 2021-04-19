@@ -22,23 +22,27 @@ export default () => {
 
 	useEffect(() => {
 		const locationName = async() => {
-			const settings = {
-				method: 'post',
-				url: '/.netlify/functions/openweathermap',
-				data: {
-					direction: 'reverse',
-					search: {
-						lat,
-						lon
-					}
-				}
-			};
+			// Make static durring dev
+			// const settings = {
+			// 	method: 'post',
+			// 	url: '/.netlify/functions/openweathermap',
+			// 	data: {
+			// 		direction: 'reverse',
+			// 		search: {
+			// 			lat,
+			// 			lon
+			// 		}
+			// 	}
+			// };
 			
-			const getLocationName = await axios(settings);
-			const firstResult = getLocationName.data;
+			// const getLocationName = await axios(settings);
+			// const firstResult = getLocationName.data;
 			
-			setCountry(firstResult.country);
-			setName(firstResult.name);
+			// setCountry(firstResult.country);
+			// setName(firstResult.name);
+			
+			setCountry('Sweden');
+			setName('Stockholm');
 		}
 
 		const geoSuccess = position => {
@@ -88,11 +92,11 @@ export default () => {
 	}
 
 	return(
-		<>
-			<form onSubmit={doSearch}>
-				<input name="searchString" type="text" placeholder="Search location" />
-				<button type="submit">Show</button>
+		<section className='container'>
+			<form onSubmit={doSearch} id='location-search'>
+				<input name='searchString' type='text' placeholder='Location' />
+				<button type='submit'>Search</button>
 			</form>
-		</>
+		</section>
 	);
 }
