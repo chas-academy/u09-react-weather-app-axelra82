@@ -5,12 +5,60 @@
             background: linear-gradient($day-clear-top, $day-clear-bottom);
         }
         
+        &.clouds{
+            background: linear-gradient($day-clouds-top, $day-clouds-bottom);
+        }
+
+        &.drizzle{
+            background: linear-gradient($day-drizzle-top, $day-drizzle-bottom);
+        }
+
+        &.rain{
+            background: linear-gradient($day-rain-top, $day-rain-bottom);
+        }
+
+        &.thunderstorm{
+            background: linear-gradient($day-thunderstorm-top, $day-thunderstorm-bottom);
+        }
+
+        &.squall{
+            background: linear-gradient($day-squall-top, $day-squall-bottom);
+        }
+
+        &.sand{
+            background: linear-gradient($day-sand-top, $day-sand-bottom);
+        }
+
+        &.dust{
+            background: linear-gradient($day-dust-top, $day-dust-bottom);
+        }
+
+        &.tornado{
+            background: linear-gradient($day-tornado-top, $day-tornado-bottom);
+        }
+
+        &.ash{
+            background: linear-gradient($day-ash-top, $day-ash-bottom);
+        }
+
+        &.smoke{
+            background: linear-gradient($day-smoke-top, $day-smoke-bottom);
+        }
+
+        &.snow{
+            background: linear-gradient($day-snow-top, $day-snow-bottom);
+        }
+
+        &.mist{
+            background: linear-gradient($day-mist-top, $day-mist-bottom);
+        }
+        
         &.fog{
             background: linear-gradient($day-fog-top, $day-fog-bottom);
         }
         
-        &.cloudy{
-            background: linear-gradient($day-cloudy-top, $day-cloudy-bottom);
+        &.haze{
+            background: linear-gradient($day-haze-top, $day-haze-bottom);
         }
     }
     
@@ -19,12 +67,60 @@
             background: linear-gradient($night-clear-top, $night-clear-bottom);
         }
         
+        &.clouds{
+            background: linear-gradient($night-clouds-top, $night-clouds-bottom);
+        }
+
+        &.drizzle{
+            background: linear-gradient($night-drizzle-top, $night-drizzle-bottom);
+        }
+
+        &.rain{
+            background: linear-gradient($night-rain-top, $night-rain-bottom);
+        }
+
+        &.thunderstorm{
+            background: linear-gradient($night-thunderstorm-top, $night-thunderstorm-bottom);
+        }
+
+        &.squall{
+            background: linear-gradient($night-squall-top, $night-squall-bottom);
+        }
+
+        &.sand{
+            background: linear-gradient($night-sand-top, $night-sand-bottom);
+        }
+
+        &.dust{
+            background: linear-gradient($night-dust-top, $night-dust-bottom);
+        }
+
+        &.tornado{
+            background: linear-gradient($night-tornado-top, $night-tornado-bottom);
+        }
+
+        &.ash{
+            background: linear-gradient($night-ash-top, $night-ash-bottom);
+        }
+
+        &.smoke{
+            background: linear-gradient($night-smoke-top, $night-smoke-bottom);
+        }
+
+        &.snow{
+            background: linear-gradient($night-snow-top, $night-snow-bottom);
+        }
+
+        &.mist{
+            background: linear-gradient($night-mist-top, $night-mist-bottom);
+        }
+        
         &.fog{
             background: linear-gradient($night-fog-top, $night-fog-bottom);
         }
         
-        &.cloudy{
-            background: linear-gradient($night-cloudy-top, $night-cloudy-bottom);
+        &.haze{
+            background: linear-gradient($night-haze-top, $night-haze-bottom);
         }
     }
 

@@ -1,23 +1,104 @@
 /* Default */
 $white: #ffffff;
 $black: #000000;
+$light: #f8f9fa;
+$dark: #343a40;
+
+/* Actions/Notifications */
+$info: #007bff;
+$success: #28a745;
+$warning: #ffc107;
+$danger: #dc3545;
 
 /* Weather conditions */
+/* day */
 $day-clear-top: #52a4da;
 $day-clear-bottom: #73bae1;
 
-$day-fog-top: #bc8db8;
-$day-fog-bottom: #5d5e90;
+$day-clouds-top: #5393b2;
+$day-clouds-bottom: #a7bdca;
 
-$day-cloudy-top: #5393b2;
-$day-cloudy-bottom: #a7bdca;
+$day-drizzle-top: #3f7a97;
+$day-drizzle-bottom: #a7bdca;
 
+$day-rain-top: #3a8fb9;
+$day-rain-bottom: #4e748a;
+
+$day-thunderstorm-top: #808e95;
+$day-thunderstorm-bottom: #5a6972;
+
+$day-squall-top: #808e95;
+$day-squall-bottom: #5a6972;
+
+$day-sand-top: #cf8946;
+$day-sand-bottom: #dba660;
+
+$day-dust-top: #cf8946;
+$day-dust-bottom: #dba660;
+
+$day-tornado-top: #514c4f;
+$day-tornado-bottom: #b3957f;
+
+$day-ash-top: #35383d;
+$day-ash-bottom: #978f7c;
+
+$day-smoke-top: #9e9d9e;
+$day-smoke-bottom: #c6c7c8;
+
+$day-snow-top: #787c86;
+$day-snow-bottom: #adb7be;
+
+$day-mist-top: #adb4c3;
+$day-mist-bottom: #949da3;
+
+$day-fog-top: #adb4c3;
+$day-fog-bottom: #949da3;
+
+$day-haze-top: #ac97b9;
+$day-haze-bottom: #b39ba3;
+
+/* night */
 $night-clear-top: #112159;
 $night-clear-bottom: #9762a2;
+
+$night-clouds-top: #3e3b6d;
+$night-clouds-bottom: #7c709e;
+
+$night-drizzle-top: #2c4755;
+$night-drizzle-bottom: #a2a8ac;
+
+$night-rain-top: #36708d;
+$night-rain-bottom: #576872;
+
+$night-thunderstorm-top: #4e4c58;
+$night-thunderstorm-bottom: #3b3c44;
+
+$night-squall-top: #4e4c58;
+$night-squall-bottom: #3b3c44;
+
+$night-sand-top: #5f3f2c;
+$night-sand-bottom: #ac8f75;
+
+$night-dust-top: #5f3f2c;
+$night-dust-bottom: #ac8f75;
+
+$night-tornado-top: #3a343a;
+$night-tornado-bottom: #a89087;
+
+$night-ash-top: #36363b;
+$night-ash-bottom: #7c756f;
+
+$night-smoke-top: #818181;
+$night-smoke-bottom: #a9a9aa;
+
+$night-snow-top: #71727a;
+$night-snow-bottom: #a2a4ac;
+
+$night-mist-top: #bc8db8;
+$night-mist-bottom: #5d5e90;
 
 $night-fog-top: #bc8db8;
 $night-fog-bottom: #5d5e90;
 
-$night-cloudy-top: #5393b2;
-$night-cloudy-bottom: #a7bdca;
-
+$night-haze-top: #887e8b;
+$night-haze-bottom: #978c8d;
