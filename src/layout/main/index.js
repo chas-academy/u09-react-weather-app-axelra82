@@ -58,16 +58,18 @@ export default () => {
 
 	const {
 		id: weatherId, //800,
-		main: weatherTitle, //Clear
-		description: weatherDescription, //clear sky
-		icon: weatherIcon, //01d
+		main: weatherTitle,
+		description: weatherDescription,
+		icon: weatherIcon,
 	} = currentWeatherDetails[0];
+
+	const tod = weatherIcon.includes('d') ? 'day' : 'night';
 
 	return(
 		<section className='container'>
-			<article className='card main gradient day clear'>
+			<article className={`card main gradient ${tod} ${weatherTitle.toLowerCase()}`}>
 				<h1>{locationName}, {locationCountry}</h1>
-				<div className="text-small">
+				<div className='text-small'>
 					<p>
 						Lat: {Math.round(lat * 100)/100}, Lon: {Math.round(lon * 100)/100}
 					</p>
@@ -76,22 +78,31 @@ export default () => {
 						As of {getTime(currentTime)}
 					</p>
 				</div>
-				<h1>{weatherTitle}</h1>
-				<div>
-					<i className={`wi wi-owm-${weatherId}`}></i>
-				</div>
+				
 				<h2>
+					<i className={`wi wi-owm-${tod}-${weatherId}`}></i>
 					{currentTemp}&deg; {unit.symbol}
 				</h2>
-				<div className="text-small">
-					Feels like {currentFeelLike} &deg;{unit.symbol}        
-				</div>
-				<h4>
-					{todayMinTemp}&deg; {unit.symbol} | {todayMaxTemp}&deg; {unit.symbol}
-				</h4>
 				
-					
-				<div className="main extras">
+				<div>
+					Feels like {currentFeelLike} &deg;{unit.symbol}. {weatherTitle}. {weatherDescription}
+				</div>
+				<div>
+					<i className='wi wi-direction-up'></i> Hi: {todayMinTemp}&deg; {unit.symbol}, <i className='wi wi-direction-down'></i> Lo: {todayMaxTemp}&deg; {unit.symbol}
+				</div>
+				
+				<div>
+					<div>
+						<i className='wi wi-horizon-alt'></i>
+						Sunrise {getTime(sunrise)}
+					</div>
+					<div>
+						<i className='wi wi-horizon'></i>
+						Sunset {getTime(sunset)}
+					</div>
+				</div>
+
+				<div className='main extras'>
 					<div>
 						<i className='wi wi-strong-wind'></i>
 						Wind {currentWindSpeed} {unit.speed}
@@ -103,14 +114,6 @@ export default () => {
 					<div>
 						<i className='wi wi-barometer'></i>
 						Pressure {currentPressure}hPa
-					</div>
-					<div>
-						<i className='wi wi-horizon-alt'></i>
-						Sunrise {getTime(sunrise)}
-					</div>
-					<div>
-						<i className='wi wi-horizon'></i>
-						Sunset {getTime(sunset)}
 					</div>
 				</div>
 			</article>
