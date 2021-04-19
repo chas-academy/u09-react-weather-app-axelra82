@@ -15,15 +15,15 @@ body {
 	font-size: 5.375vw;
 	line-height: 1.3;
 	font-style: normal;
-	font-weight: 300;
-	font-family: sans-serif;
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
 	color: $white;
 }
 
 // Headings
 @for $i from 1 through 6 {
 	h#{$i} {
-		font-family: sans-serif;
+		font-weight: 100;
 	}
 }
 
@@ -31,7 +31,6 @@ h1,
 .h1 {
 	font-size: #{$h1}rem;
 	margin: 0 0 #{($h1 / 2)}rem 0;
-	font-weight: 700 !important;
 }
 
 h2,
@@ -64,33 +63,30 @@ h6,
 	margin: 0 0 #{($h6 / 2)}rem 0;
 }
 
+// Font weights
 strong,
-.text-strong {
-	font-weight: 700 !important;
+.fw-strong {
+	font-weight: 900 !important;
 }
 
-.text-semi {
-	font-weight: 500 !important;
+.fw-regular {
+	font-weight: 400 !important;
 }
 
-.text-light {
-	font-weight: 300 !important;
+.fw-thin {
+	font-weight: 100 !important;
 }
 
-.text-muted {
-	color: darken(#ffffff, 50) !important;
-}
-
-// Sizes
-.text-medium {
+// Text sizes
+.ts-medium {
 	font-size: 0.837rem !important;
 }
 
-.text-small {
+.ts-small {
 	font-size: 0.675rem !important;
 }
 
-.text-tiny {
+.ts-tiny {
 	font-size: 0.465rem !important;
 }
 
