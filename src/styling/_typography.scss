@@ -89,6 +89,10 @@ strong,
 	font-size: 0.675rem !important;
 }
 
+.text-tiny {
+	font-size: 0.465rem !important;
+}
+
 // Media switches
 @include media-sm {
 	html,
