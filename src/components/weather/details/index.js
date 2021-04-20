@@ -19,7 +19,7 @@ export default ({
 				{title}
 			</div>
 			<div className='ts-medium'>
-				{value} {unit && unit}
+				{value}{unit ? unit === 'deg' ? '\u00b0' : ` ${unit}` : ''}
 			</div>
 		</article>
 	);

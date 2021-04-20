@@ -178,7 +178,7 @@ export default () => {
 					icon: 'thermometer',
 					title: 'Feels like',
 					value: tempRound(currentFeelLike),
-					unit: `\u00b0`
+					unit: 'deg'
 				}} />
 
 				<Detail content={{
@@ -212,7 +212,7 @@ export default () => {
 					icon: 'raindrops',
 					title: 'Dew point',
 					value: tempRound(currentDewPoint),
-					unit:`\u00b0`
+					unit: 'deg'
 				}} />
 			</div>
 			
