@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
+import { getLocal, setLocal } from '../../helpers';
 import axios from 'axios';
 
 import { Header, Footer } from '../';
@@ -89,27 +90,32 @@ export default () => {
 		}
 
 		// If we have latitude and longitude values we can get weather data
-		if(lat && lon){
-			
-			const getWeatherData = async() => {
-				// Post request settings for data
-				// Body contains lat and lon values
-				const settings = {
-					method: 'post',
-					url: '/.netlify/functions/owm-data',
-					data: {
-						lat,
-						lon,
-						unit: currentUnit,
-					}
-				};
-				
-				const response = await axios(settings);
-				setWeatherData(response.data);
-			}
 
-			getWeatherData();
-		}
+		/*******************
+		 * PRODUCTION
+		 * Use response template durring dev. To many unnecessary live API calls
+		*******************/
+		// if(lat && lon){
+			
+		// 	const getWeatherData = async() => {
+		// 		// Post request settings for data
+		// 		// Body contains lat and lon values
+		// 		const settings = {
+		// 			method: 'post',
+		// 			url: '/.netlify/functions/owm-data',
+		// 			data: {
+		// 				lat,
+		// 				lon,
+		// 				unit: currentUnit,
+		// 			}
+		// 		};
+				
+		// 		const response = await axios(settings);
+		// 		setWeatherData(response.data);
+		// 	}
+
+		// 	getWeatherData();
+		// }
 
 		// Only resubcscribe on change in variables
 	}, [lat, lon, currentUnit]);
