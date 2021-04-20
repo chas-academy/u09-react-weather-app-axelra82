@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import Context from '../context/StoreContext';
 import responseTemplate from '../response-template.json';
+import { getLocal } from '../helpers';
 
 const StoreContext = ({ children }) => {
 
@@ -12,7 +13,9 @@ const StoreContext = ({ children }) => {
 	// @Units: metric | imperial | standard*
 	// * if no unit value is present durring api call standard will be used
 	const [unit, setUnit] = useState({
-		current: 'metric',
+		// Set unit according to local storage
+		// i.e. default to metric else get value
+		current: getLocal().unit,
 		options: [
 			{
 				value: 'metric',
@@ -34,7 +37,7 @@ const StoreContext = ({ children }) => {
 	
 	const [tod, setTod] = useState(null);
 	const [gradient, setGradient] = useState(null);
-	const [weatherData, setWeatherData] = useState(null);
+	const [weatherData, setWeatherData] = useState(responseTemplate);
 
 	// Data will come from API request
 	const store = {
