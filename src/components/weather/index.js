@@ -176,7 +176,7 @@ export default () => {
 			<div id='weather-container-extras'>
 				<Detail content={{
 					icon: 'thermometer',
-					title: 'feels like',
+					title: 'Feels like',
 					value: tempRound(currentFeelLike),
 					unit: `\u00b0`
 				}} />
