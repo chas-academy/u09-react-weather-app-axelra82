@@ -255,7 +255,7 @@ export default () => {
 			</div>
 			
 			<article id='weather-container-hourly' className='mt-1'>
-				<h1 className='ts-medium fw-regular text-left'>Hourly forecast</h1>
+				<h1 className='ts-medium fw-regular text-left'>12 hour forcast</h1>
 				<section id='horizontal-scroll-wrapper'>
 				{
 					hourly.map((item, idx) => {
