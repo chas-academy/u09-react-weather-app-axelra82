@@ -1,0 +1,21 @@
+@import '../../../styling/colors';
+
+.hourly-box{
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    transform: rotate(90deg);
+    transform-origin: right top;
+
+    &:first-child{
+        margin-top: 120px;
+    }
+    
+    &:last-child{
+        margin-bottom: -120px;
+    }
+    
+    i{
+        margin: .365rem;
+    }
+}
