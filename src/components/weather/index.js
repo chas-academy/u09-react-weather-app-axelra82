@@ -148,12 +148,12 @@ export default () => {
 						{tempRound(currentTemp)}&deg;{unit.symbol}
 					</h2>
 
-					<div id='temp-hi-lo' className='ts-medium fw-thin'>
+					<div id='temp-hi-lo' className='ts-medium'>
 						<div id='temp-hi'>
-							<i className='wi wi-direction-up'></i> {tempRound(todayMaxTemp)}&deg;{unit.symbol}
+							H: {tempRound(todayMaxTemp)}&deg;{unit.symbol}
 						</div>
 						<div id='temp-lo'>
-							<i className='wi wi-direction-down'></i> {tempRound(todayMinTemp)}&deg;{unit.symbol}
+							L: {tempRound(todayMinTemp)}&deg;{unit.symbol}
 						</div>
 					</div>
 				</section>
