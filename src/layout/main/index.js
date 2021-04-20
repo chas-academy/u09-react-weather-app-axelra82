@@ -1,10 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
-import { getLocal, setLocal } from '../../helpers';
 import axios from 'axios';
 
-import { Header, Footer } from '../';
+import { Footer } from '../';
 import Weather from '../../components/weather';
 
 import './style.scss';
@@ -118,6 +117,7 @@ export default () => {
 		}
 
 		// Only resubcscribe on change in variables
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [lat, lon, currentUnit]);
 
 	return(

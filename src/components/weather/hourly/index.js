@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 
 import './style.scss';
@@ -5,7 +6,7 @@ import './style.scss';
 export default ({data}) => {
 
     console.log(data);
-    const { time, temp, icon, description } = data;
+    const { time, temp, icon } = data;
     return(
         <div className='hourly-box ts-small'>
             {time}

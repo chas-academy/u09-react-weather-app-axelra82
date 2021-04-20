@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import StoreContext from '../../context/StoreContext';
 import { getLocal, setLocal } from '../../helpers';
 

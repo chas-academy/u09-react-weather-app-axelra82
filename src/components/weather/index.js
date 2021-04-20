@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
 
 import Detail from './details';
@@ -117,6 +117,8 @@ export default () => {
 	useEffect(() => {
 		setTod(getTod);
 		setGradient(weatherTitle.toLowerCase());
+		
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return(
@@ -218,12 +220,11 @@ export default () => {
 					hourly.map((item, idx) => {
 						// console.log(item);
 						const { dt: itemTime, temp: itemTemp, weather: itemWeather } = item;
-						const { id: itemWeatherId, main: itemDescription } = itemWeather[0];
+						const { id: itemWeatherId, } = itemWeather[0];
 						return <Hourly key={`hourly-${idx}`} data={{
 							time: idx === 0 ? 'NOW' : getTime(itemTime, false, true),
 							temp: `${tempRound(itemTemp)}\u00b0${unit.symbol}`,
 							icon: `wi wi-owm-${tod}-${itemWeatherId}`,
-							description: itemDescription,
 						}} />;
 					})
 				}
