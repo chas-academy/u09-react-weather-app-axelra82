@@ -242,6 +242,7 @@ export default () => {
 			<article id='weather-container-daily' className='mt-3'>
 				<h1 className='ts-medium fw-regular title-line'>7 day forcast</h1>
 				{
+					// eslint-disable-next-line array-callback-return
 					daily.map((item, idx) => {
 						// Skip first item, that's today
 						if(idx > 0){
