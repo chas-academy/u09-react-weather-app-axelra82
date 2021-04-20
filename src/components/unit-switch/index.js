@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useContext, useState } from 'react';
 import StoreContext from '../../context/StoreContext';
+import { getLocal, setLocal } from '../../helpers';
 
 import './style.scss';
 
@@ -21,23 +22,32 @@ export default () => {
 	const metric = options[0];
 	const farenheit = options[1];
 
-	const buttonClick = (metric) => {
+	const buttonClick = (newUnit) => {
 		setUnit({
 			...unit,
-			current: metric,
+			current: newUnit,
+		});
+
+		setLocal({
+			...getLocal(),
+			unit: newUnit
 		});
 	};
 	
+	const active = (value) => {
+		return current === value ? 'active' : ''
+	}
+
 	return(
 		<div id="unit-switch-buttons">
 			<button
-				className={`info outline text-tiny ${current === 'metric' ? 'active' : ''}`}
+				className={`info outline text-tiny ${active(metric.value)}`}
 				onClick={() => buttonClick(metric.value)}
 			>
 				{metric.value}: &deg;{metric.symbol}, {metric.speed}
 			</button>
 			<button
-				className={`info outline text-tiny ${current !== 'metric' ? 'active' : ''}`}
+				className={`info outline text-tiny ${active(farenheit.value)}`}
 				onClick={() => buttonClick(farenheit.value)}
 			>
 				{farenheit.value}: &deg;{farenheit.symbol}, {farenheit.speed}
