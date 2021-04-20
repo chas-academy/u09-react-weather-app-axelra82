@@ -71,3 +71,9 @@ App must also:
 
 ~~[Github repo]()~~
 and link to repo in LMS
+
+# Article/Video references
+
+During the development of this application some helpful/interesting articles where found:
+
+- [Pure CSS Horizontal Scrolling](https://css-tricks.com/pure-css-horizontal-scrolling/)
