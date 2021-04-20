@@ -15,6 +15,7 @@ To test if you have it, run `node -v`. If this outputs a version number (e.g. v1
 If you don't have it installed visit [nodejs.org](https://nodejs.org/en/download/), download installer and follow instructions for you OS.
 
 **Netlify CLI**
+
 To test if you have it, run `netlify -v`. If this outputs a version number (e.g. netlify-cli/3.18.3) you are good to go.
 
 If you don't have it installed you can run `npm i -g netlify-cli`. For more details visit [netlify docs](https://docs.netlify.com/cli/get-started/).
