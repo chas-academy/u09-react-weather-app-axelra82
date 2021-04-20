@@ -11,7 +11,6 @@ const StoreContext = ({ children }) => {
 	// location, metric and data handling
 	// @Units: metric | imperial | standard*
 	// * if no unit value is present durring api call standard will be used
-
 	const [unit, setUnit] = useState({
 		current: 'metric',
 		options: [
@@ -35,7 +34,8 @@ const StoreContext = ({ children }) => {
 	
 	const [tod, setTod] = useState(null);
 	const [gradient, setGradient] = useState(null);
-	
+	const [weatherData, setWeatherData] = useState(null);
+
 	// Data will come from API request
 	const store = {
 		unit,
@@ -56,7 +56,8 @@ const StoreContext = ({ children }) => {
 			gradient,
 			setGradient,
 		},
-		data: responseTemplate,
+		weatherData,
+		setWeatherData,
 	};
 
 	return (
