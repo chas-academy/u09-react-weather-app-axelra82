@@ -95,27 +95,27 @@ export default () => {
 		 * PRODUCTION
 		 * Use response template durring dev. To many unnecessary live API calls
 		*******************/
-		// if(lat && lon){
+		if(lat && lon){
 			
-		// 	const getWeatherData = async() => {
-		// 		// Post request settings for data
-		// 		// Body contains lat and lon values
-		// 		const settings = {
-		// 			method: 'post',
-		// 			url: '/.netlify/functions/owm-data',
-		// 			data: {
-		// 				lat,
-		// 				lon,
-		// 				unit: currentUnit,
-		// 			}
-		// 		};
+			const getWeatherData = async() => {
+				// Post request settings for data
+				// Body contains lat and lon values
+				const settings = {
+					method: 'post',
+					url: '/.netlify/functions/owm-data',
+					data: {
+						lat,
+						lon,
+						unit: currentUnit,
+					}
+				};
 				
-		// 		const response = await axios(settings);
-		// 		setWeatherData(response.data);
-		// 	}
+				const response = await axios(settings);
+				setWeatherData(response.data);
+			}
 
-		// 	getWeatherData();
-		// }
+			getWeatherData();
+		}
 
 		// Only resubcscribe on change in variables
 	}, [lat, lon, currentUnit]);

@@ -37,7 +37,7 @@ const StoreContext = ({ children }) => {
 	
 	const [tod, setTod] = useState(null);
 	const [gradient, setGradient] = useState(null);
-	const [weatherData, setWeatherData] = useState(responseTemplate);
+	const [weatherData, setWeatherData] = useState(null);
 
 	// Data will come from API request
 	const store = {
