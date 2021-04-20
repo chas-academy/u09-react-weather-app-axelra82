@@ -18,7 +18,8 @@
     
     .daily-temp{
         grid-area: temp;
-
+        justify-self: self-end;
+        
         .max-temp{
             margin-right: 1rem;
         }

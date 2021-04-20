@@ -25,8 +25,8 @@ export default ({data}) => {
 				{pop >= 1 && ` ${pop}%`}
 			</div>
 			<div className='daily-temp'>
-				<span className='max-temp'>{max}</span>
-				<span className='min-temp'>{min}</span>
+				<span className='max-temp text-right'>{max}</span>
+				<span className='min-temp text-right'>{min}</span>
 			</div> 
 		</section>
 	);
