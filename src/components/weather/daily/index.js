@@ -5,8 +5,6 @@ import './style.scss';
 
 export default ({data}) => {
 
-	console.log(data);
-
 	const {
 		day,
 		temp: {
