@@ -4,6 +4,7 @@ import StoreContext from '../../context/StoreContext';
 
 import Detail from './details';
 import Hourly from './hourly';
+import Daily from './daily';
 
 import './style.scss';
 
@@ -44,7 +45,7 @@ export default () => {
 
 	const unit = unitOptions.find(unit => unit.value === currentUnit);
 
-	const getTime = (timestamp = null, getDate = false, onlyHour = false) => {
+	const getTime = (timestamp = null, getDate = false, onlyHour = false, fullDay = false) => {
 
 		if(typeof timestamp !== 'undefined'){
 			const date = new Date(timestamp * 1000);
@@ -71,13 +72,15 @@ export default () => {
 			.toLocaleDateString(
 				locale,
 				{
-					weekday: 'short'
+					weekday: fullDay ? 'long' : 'short',
 				}
-
 			);
 
 			return getDate ?
-				`${day}, ${time}`
+				fullDay ?
+					day
+				:
+					`${day}, ${time}`
 			:
 				onlyHour ?
 					timeHour
@@ -145,15 +148,15 @@ export default () => {
 				<section id='temp'>
 
 					<h2 id='temp-main'>
-						{tempRound(currentTemp)}&deg;{unit.symbol}
+						{tempRound(currentTemp)}&deg;
 					</h2>
 
 					<div id='temp-hi-lo' className='ts-medium'>
 						<div id='temp-hi'>
-							H: {tempRound(todayMaxTemp)}&deg;{unit.symbol}
+							H: {tempRound(todayMaxTemp)}&deg;
 						</div>
 						<div id='temp-lo'>
-							L: {tempRound(todayMinTemp)}&deg;{unit.symbol}
+							L: {tempRound(todayMinTemp)}&deg;
 						</div>
 					</div>
 				</section>
@@ -175,7 +178,7 @@ export default () => {
 					icon: 'thermometer',
 					title: 'feels like',
 					value: tempRound(currentFeelLike),
-					unit: `\u00b0${unit.symbol}`
+					unit: `\u00b0`
 				}} />
 
 				<Detail content={{
@@ -202,33 +205,71 @@ export default () => {
 				<Detail content={{
 					icon: 'day-sunny',
 					title: 'UV index',
-					value: currentUvIndex
+					value: tempRound(currentUvIndex)
 				}} />
 
 				<Detail content={{
 					icon: 'raindrops',
 					title: 'Dew point',
 					value: currentDewPoint,
-					unit:`\u00b0${unit.symbol}`
+					unit:`\u00b0`
 				}} />
 			</div>
 			
 			<article id='weather-container-hourly' className='mt-1'>
-				<h1 className='ts-medium fw-regular text-left'>12 hour forcast</h1>
+				<h1 className='ts-medium fw-regular title-line'>12 hour forcast</h1>
 				<section id='horizontal-scroll-wrapper'>
 				{
 					hourly.map((item, idx) => {
-						// console.log(item);
-						const { dt: itemTime, temp: itemTemp, weather: itemWeather } = item;
-						const { id: itemWeatherId, } = itemWeather[0];
+						const {
+							dt: itemTime,
+							temp: itemTemp,
+							weather: itemWeather
+						} = item;
+						const {
+							id: itemWeatherId,
+						} = itemWeather[0];
 						return <Hourly key={`hourly-${idx}`} data={{
 							time: idx === 0 ? 'NOW' : getTime(itemTime, false, true),
-							temp: `${tempRound(itemTemp)}\u00b0${unit.symbol}`,
+							temp: `${tempRound(itemTemp)}\u00b0`,
 							icon: `wi wi-owm-${tod}-${itemWeatherId}`,
 						}} />;
 					})
 				}
 				</section>
+			</article>
+			
+			<article id='weather-container-daily' className='mt-3'>
+				<h1 className='ts-medium fw-regular title-line'>7 day forcast</h1>
+				{
+					daily.map((item, idx) => {
+						// Skip first item, that's today
+						if(idx > 0){
+							
+							const {
+								dt: itemTime,
+								temp: {
+									min: itemMinTemp,
+									max: itemMaxTemp,
+								},
+								weather: itemWeather,
+								pop, // Probability of Precipitation
+							} = item;
+							const {
+								id: itemWeatherId,
+							} = itemWeather[0];
+							return <Daily key={`daily-${idx}`} data={{
+								day: getTime(itemTime, true, false, true),
+								temp: {
+									min: `${tempRound(itemMinTemp)}`,
+									max: `${tempRound(itemMaxTemp)}`,
+								},
+								icon: `wi wi-owm-${tod}-${itemWeatherId}`,
+								pop: tempRound(pop),
+							}} />;
+						}
+					})
+				}
 			</article>
 		</section>
 	);
