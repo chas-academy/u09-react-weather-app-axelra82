@@ -217,7 +217,7 @@ export default () => {
 			</div>
 			
 			<article id='weather-container-hourly' className='mt-1'>
-				<h1 className='ts-medium fw-regular title-line'>12 hour forcast</h1>
+				<h1 className='ts-medium fw-regular title-line'>12 hour forecast</h1>
 				<section id='horizontal-scroll-wrapper'>
 				{
 					hourly.map((item, idx) => {
@@ -240,7 +240,7 @@ export default () => {
 			</article>
 			
 			<article id='weather-container-daily' className='mt-3'>
-				<h1 className='ts-medium fw-regular title-line'>7 day forcast</h1>
+				<h1 className='ts-medium fw-regular title-line'>7 day forecast</h1>
 				{
 					// eslint-disable-next-line array-callback-return
 					daily.map((item, idx) => {
