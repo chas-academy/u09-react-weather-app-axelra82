@@ -74,6 +74,48 @@
     margin-top: 1.375rem;
 }
 
-#hourly-line-chart{
-    margin-top: 3rem;
+// #hourly-line-chart{
+//     margin-top: 3rem;
+// }
+
+#weather-container-hourly{
+    position: relative;
+    height: calc(95px + 1rem);
+    display: block;
+    
+    h1{
+        overflow: hidden;
+  
+
+        &:after {
+            left: 0.5em;
+            margin-right: -50%;
+            background-color: rgba($white, .25);
+            content: "";
+            display: inline-block;
+            height: 1px;
+            position: relative;
+            vertical-align: middle;
+            width: 100%;
+          }
+    }
+
+    #horizontal-scroll-wrapper{
+        &::-webkit-scrollbar,
+        &::-webkit-scrollbar-button{
+            width: 0px;
+            height: 0px;
+        }
+
+        position: absolute;
+        display: block;
+        top: 1rem;
+        left: 50%;
+        height: 100vw;
+        width: 120px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: rotate(-90deg) translate(-45px, calc(-50vw - 120px));
+        transform-origin: right top;
+    }
 }
