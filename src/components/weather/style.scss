@@ -12,12 +12,12 @@
     #weather-container-mid{
         grid-area: mid;
         display: grid;
-        grid-template-areas: "mid-title" "mid-temp";
+        grid-template-areas: "mid-title" "mid-temp" "mid-temp-feels-like";
         
         h1#icon-title{
             grid-area: mid-title;
         }
-        
+
         #temp{
             grid-area: mid-temp;
             
@@ -42,5 +42,38 @@
                 }
             }
         }
+
+        #temp-feels-like{
+            grid-area: mid-temp-feels-like;
+
+            i{
+                margin-right: .375rem;
+            }
+        }
     }
+}
+
+#weather-sunrise-sunset{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    i{
+        margin-right: .375rem;
+    }
+
+    div:first-child{
+        margin-right: 1rem;
+    }
+}
+
+#weather-container-extras{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.375rem;
+    margin-top: 1.375rem;
+}
+
+#hourly-line-chart{
+    margin-top: 3rem;
 }

@@ -1,0 +1,13 @@
+@import '../../../styling/colors';
+
+.weather-detail-box{
+    background: rgba($white, .1);
+    border-radius: .375rem;
+    padding: .675rem .165rem;
+    display: flex;
+    flex-direction: column;
+
+    i{
+        margin-bottom: .365rem;
+    }
+}
