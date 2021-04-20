@@ -5,7 +5,6 @@ import './style.scss';
 
 export default ({data}) => {
 
-    console.log(data);
     const { time, temp, icon } = data;
     return(
         <div className='hourly-box ts-small'>
