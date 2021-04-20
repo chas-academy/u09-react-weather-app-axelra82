@@ -1,11 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useContext, useEffect, useState } from 'react';
 import StoreContext from '../../context/StoreContext';
-import { Line, Bar } from 'react-chartjs-2';
-import * as Chart from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-import Location from '../search';
 import Detail from './details';
 import Hourly from './hourly';
 
@@ -122,43 +118,6 @@ export default () => {
 		setTod(getTod);
 		setGradient(weatherTitle.toLowerCase());
 	}, []);
-	
-	// const lineChartLabels = [];
-	// const lineChartValues = [];
-	// hourly.forEach((o,i) => {
-		
-	// 	if(i < 6){
-	// 		let label;
-	// 		if(i === 0){
-	// 			label = 'NOW';
-	// 		}else{
-	// 			label = getTime(o.dt, false, true);
-	// 		}
-	// 		lineChartLabels.push(label);
-	// 		lineChartValues.push(tempRound(o.temp));
-	// 	}
-	// });
-
-	// // ChartJS datalabels plugin
-	// Chart
-	// .plugins
-	// .register(ChartDataLabels);
-	// Chart
-	// .helpers
-	// .merge(
-	// 	Chart.defaults.global.plugins.datalabels, {
-	// 		color: '#fff',
-	// 		anchor: 'start',
-	// 		align: 'end',
-	// 		clamp: true,
-	// 		font: {
-	// 			size: 18,
-	// 		},
-	// 		formatter: function(value) {
-	// 			return `${value}\u00b0${unit.symbol}`;
-	// 		},
-	// 	},
-	// );
 
 	return(
 		<section id='weather-container'>
@@ -171,8 +130,6 @@ export default () => {
 					{getTime(currentTime, true)}
 				</div>
 			</article>
-
-			{/* <Location /> */}
 
 			<article id='weather-container-mid'>
 
@@ -272,73 +229,6 @@ export default () => {
 				}
 				</section>
 			</article>
-
-			{/* <Line id='hourly-line-chart' data={{
-				labels: lineChartLabels,
-				datasets: [
-					{
-						data: lineChartValues,
-						fill: false,
-						borderColor: 'rgba(255, 255, 255, 0.5)',
-						borderWidth: 1,
-						borderDash: [3, 5],
-						pointBorderWidth: 9,
-						pointbORDERColor: 'rgba(255, 255, 255, .1)',
-						pointBackgroundColor: '#fff',
-						pointHoverRadius: 5,
-						pointHoverBackgroundColor: 'rgba(255, 255, 255, 0.35)',
-						pointHoverBorderColor: '#fff',
-						pointHoverBorderWidth: 2,
-						pointRadius: 3,
-						pointHitRadius: 20,
-					},
-				],
-			}}
-			height={75}
-			options={{
-				layout: {
-					padding: {
-						left: 20,
-						right: 20,
-						top: 25,
-					}
-				},
-				legend: {
-					display: false
-				},
-				tooltips: {
-					enabled: false
-				},
-    			scales: {
-					yAxes: [
-						{
-							gridLines: {
-								display: false,
-							},
-							ticks: {
-								display: false,
-								beginAtZero: true
-							},
-						},
-					],
-					xAxes: [
-						{
-							gridLines: {
-								// display:false,
-								color: 'rgba(255,255,255,0.25)',
-								drawBorder: false,
-								borderColor: 'rgba(255,255,255,0.25)',
-								drawOnChartArea: true,
-							},
-							ticks: {
-								fontColor: '#fff',
-							},
-						},
-					],
-				},
-			}}
-
-			/> */}
 		</section>
 	);
 }
