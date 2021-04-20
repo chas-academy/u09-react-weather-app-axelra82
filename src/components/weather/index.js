@@ -211,7 +211,7 @@ export default () => {
 				<Detail content={{
 					icon: 'raindrops',
 					title: 'Dew point',
-					value: currentDewPoint,
+					value: tempRound(currentDewPoint),
 					unit:`\u00b0`
 				}} />
 			</div>
