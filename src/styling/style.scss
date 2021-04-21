@@ -8,15 +8,12 @@
 @import './gradients';
 @import './typography';
 @import './layout';
-@import './buttons';
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	// Make sure long words break
-	// rather than expand the box
-	word-wrap: break-word;
+	-webkit-appearance: none;
 
 	&:focus {
 		outline: none;
@@ -25,7 +22,13 @@
 
 html,
 body{
+	position: relative;
+    min-height: 100vh;
 	overflow-x: hidden;
+	
+	&.scroll-lock{
+		overflow: hidden !important;
+	}
 }
 
 .title-line{
