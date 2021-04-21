@@ -1,6 +1,7 @@
 {
-  "name": "u09",
-  "version": "0.1.0",
+  "name": "ca-u09-weather-app",
+  "description": "Chas Academy assignment u09 - React Weather App",
+  "version": "1.0.0-beta",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
@@ -40,5 +41,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axelra82/weather-app-ca-u09"
+  },
+  "bugs": {
+    "url": "https://github.com/axelra82/weather-app-ca-u09/issues"
   }
 }
