@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import StoreContext from '../../context/StoreContext';
 import axios from 'axios';
 
