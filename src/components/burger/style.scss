@@ -1,6 +1,6 @@
 @import '../../styling/colors';
 
-$sizeW: 1.675rem;
+$sizeW: 30px;
 
 #burger-menu{
     position: fixed;
@@ -10,7 +10,7 @@ $sizeW: 1.675rem;
     flex-direction: column;
     justify-content: space-around;
     width: $sizeW;
-    height: 1.25rem;
+    height: 25px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -19,11 +19,11 @@ $sizeW: 1.675rem;
 
     div {
         width: $sizeW;
-        height: 0.125rem;
+        height: 4px;
         background: $white;
         transition: all 0.2s linear;
         position: relative;
-        transform-origin: $sizeW/6;
+        transform-origin: $sizeW/10;
 
         &:first-child {
             transform: rotate(0);

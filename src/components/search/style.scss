@@ -3,15 +3,17 @@
 #location-search{
     display: flex;
     justify-content: center;
+    flex-direction: column;
 
     input{
         font-size: 2rem;
         border: none;
         background: none;
         padding: 0 .375rem;
-        margin-right: 1rem;
+        margin-bottom: 1rem;
         color: $white;
-        border-bottom: 3px solid rgba($white, .25);
+        text-align: center;
+        border-bottom: 1px solid rgba($white, .25);
     }
 
     button{

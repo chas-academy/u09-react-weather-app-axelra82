@@ -9,7 +9,8 @@
     height: 100vh;
     background: $dark;
     background: linear-gradient($dark, rgba($dark, .85));
-    transform: translateY(-100vh);
+    transform: scale(2);
+    z-index: 98;
    
     &.open{
         display: flex;
@@ -18,7 +19,7 @@
         
         @keyframes zoomIn {
             to{
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
     }
