@@ -15,7 +15,7 @@ export default ({data}) => {
 	const lineChartValues = [];
 	hourly.forEach((item,idx) => {
         // Use modulus operator to get every n4 from array
-        if(idx % 4 === 0){
+        if(idx % 6 === 0){
             let label;
             if(idx === 0){
                 label = 'NOW';
@@ -40,7 +40,7 @@ export default ({data}) => {
             align: 'end',
             clamp: true,
             font: {
-                size: 18,
+                size: 14,
             },
             formatter: function(value) {
                 return `${value}%`;
@@ -70,13 +70,13 @@ export default ({data}) => {
                 },
             ],
         }}
-        height={50}
+        height={75}
         options={{
             layout: {
                 padding: {
-                    left: 20,
-                    right: 20,
-                    top: 25,
+                    left: 10,
+                    right: 10,
+                    top: 20,
                 }
             },
             legend: {
