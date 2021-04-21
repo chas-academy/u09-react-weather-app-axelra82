@@ -26,252 +26,6 @@
             }
         ]
     },
-    "minutely": [
-        {
-            "dt": 1618985820,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618985880,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618985940,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986000,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986060,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986120,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986180,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986240,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986300,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986360,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986420,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986480,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986540,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986600,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986660,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986720,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986780,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986840,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986900,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618986960,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987020,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987080,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987140,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987200,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987260,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987320,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987380,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987440,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987500,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987560,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987620,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987680,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987740,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987800,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987860,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987920,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618987980,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988040,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988100,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988160,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988220,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988280,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988340,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988400,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988460,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988520,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988580,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988640,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988700,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988760,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988820,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988880,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618988940,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989000,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989060,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989120,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989180,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989240,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989300,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989360,
-            "precipitation": 0
-        },
-        {
-            "dt": 1618989420,
-            "precipitation": 0
-        }
-    ],
     "hourly": [
         {
             "dt": 1618984800,
@@ -294,7 +48,7 @@
                     "icon": "01d"
                 }
             ],
-            "pop": 0
+            "pop": 5
         },
         {
             "dt": 1618988400,
@@ -340,7 +94,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0
+            "pop": 10
         },
         {
             "dt": 1618995600,
@@ -386,7 +140,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0
+            "pop": 22
         },
         {
             "dt": 1619002800,
@@ -409,7 +163,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0
+            "pop": 15
         },
         {
             "dt": 1619006400,
@@ -432,7 +186,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0
+            "pop": 22
         },
         {
             "dt": 1619010000,
@@ -478,7 +232,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0.14
+            "pop": 35
         },
         {
             "dt": 1619017200,
@@ -501,7 +255,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0.22
+            "pop": 22
         },
         {
             "dt": 1619020800,
@@ -524,7 +278,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0.22
+            "pop": 22
         },
         {
             "dt": 1619024400,
@@ -547,7 +301,7 @@
                     "icon": "10d"
                 }
             ],
-            "pop": 0.39,
+            "pop": 22,
             "rain": {
                 "1h": 0.14
             }
@@ -573,7 +327,7 @@
                     "icon": "04d"
                 }
             ],
-            "pop": 0.14
+            "pop": 22
         },
         {
             "dt": 1619031600,
@@ -596,7 +350,7 @@
                     "icon": "04n"
                 }
             ],
-            "pop": 0.15
+            "pop": 22
         },
         {
             "dt": 1619035200,
@@ -645,7 +399,7 @@
                     "icon": "10n"
                 }
             ],
-            "pop": 0.32,
+            "pop": 32,
             "rain": {
                 "1h": 0.5
             }
@@ -671,7 +425,7 @@
                     "icon": "10n"
                 }
             ],
-            "pop": 0.4,
+            "pop": 32,
             "rain": {
                 "1h": 0.57
             }
@@ -775,7 +529,7 @@
                     "icon": "10n"
                 }
             ],
-            "pop": 0.6,
+            "pop": 28,
             "rain": {
                 "1h": 0.28
             }
@@ -870,7 +624,7 @@
                     "icon": "10d"
                 }
             ],
-            "pop": 0.66,
+            "pop": 14,
             "rain": {
                 "1h": 0.2
             }
@@ -974,7 +728,7 @@
                     "icon": "13d"
                 }
             ],
-            "pop": 0.94,
+            "pop": 9,
             "snow": {
                 "1h": 0.9
             }
