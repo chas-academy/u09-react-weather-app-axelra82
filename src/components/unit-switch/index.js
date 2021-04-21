@@ -44,13 +44,14 @@ export default () => {
 				className={`info outline text-tiny ${active(metric.value)}`}
 				onClick={() => buttonClick(metric.value)}
 			>
-				{metric.value}: &deg;{metric.symbol}, {metric.speed}
+				&deg;C
 			</button>
+			<span className='unit-separator'>/</span>
 			<button
 				className={`info outline text-tiny ${active(farenheit.value)}`}
 				onClick={() => buttonClick(farenheit.value)}
 			>
-				{farenheit.value}: &deg;{farenheit.symbol}, {farenheit.speed}
+				&deg;F
 			</button>
 		</div>
 	);

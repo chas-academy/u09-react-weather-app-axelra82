@@ -1,5 +1,25 @@
+@import '../../styling/colors';
+
 #unit-switch-buttons{
-    button:first-child{
-        margin-right: .5rem;
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+
+    .unit-separator{
+        margin: 0 .25rem;
+        font-size: 1.25rem;
+        color: rgba($white, .25);
+    }
+
+    button{
+        background: none;
+        font-size: 1.25rem;
+        color: rgba($white, .5);
+        border: none;
+        cursor: pointer;
+
+        &.active{
+            color: $white;
+        }
     }
 }
