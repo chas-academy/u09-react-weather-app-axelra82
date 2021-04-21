@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
 import axios from 'axios';
 
-import { Footer } from '../';
+import { Header, Footer } from '../';
 import Weather from '../../components/weather';
 
 import './style.scss';
@@ -12,6 +12,7 @@ export default () => {
 	
 	const {
 		store: {
+			searchLocation,
 			unit:{
 				current: currentUnit
 			},
@@ -32,60 +33,58 @@ export default () => {
 		}
 	} = useContext(StoreContext);
 
-	// useEffect for component life cycle behavior
-	useEffect(() => {
-		
-		// Test for browser geolocation support
-		if (navigator.geolocation) {
-			
-			const locationName = async() => {
-				// Make static durring dev
-				// const settings = {
-				// 	method: 'post',
-				// 	url: '/.netlify/functions/openweathermap',
-				// 	data: {
-				// 		direction: 'reverse',
-				// 		search: {
-				// 			lat,
-				// 			lon
-				// 		}
-				// 	}
-				// };
-				
-				// const getLocationName = await axios(settings);
-				// const firstResult = getLocationName.data;
-				
-				// setCountry(firstResult.country);
-				// setName(firstResult.name);
-				
-				setCountry('Sweden');
-				setName('Stockholm');
-			}
-	
-			// Success function
-			const geoSuccess = position => {
-				setLat(position.coords.latitude);
-				setLon(position.coords.longitude);
-			}
-	
-			// Error function
-			const geoError = error => {
-				// Will show if user blocks location tracking
-				if(error.code === error.PERMISSION_DENIED){
-					alert('Please allow application to view your current position for precise location matching. You may also use the location search function.');
+	const locationName = async() => {
+					
+		const settings = {
+			method: 'post',
+			url: '/.netlify/functions/owm-location',
+			data: {
+				direction: 'reverse',
+				search: {
+					lat,
+					lon
 				}
 			}
+		};
+		
+		const getLocationName = await axios(settings);
+		const firstResult = getLocationName.data;
 
-			// Browser supports geoloaction
-			// Get location in success function
-			navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+		setCountry(firstResult.country);
+		setName(firstResult.name);
+	}
 
-			if(lat && lon){
-				locationName();
+	// useEffect for component life cycle behavior
+	useEffect(() => {
+		if(!searchLocation){
+			// Test for browser geolocation support
+			if (navigator.geolocation) {
+		
+				// Success function
+				const geoSuccess = position => {
+					setLat(position.coords.latitude);
+					setLon(position.coords.longitude);
+				}
+		
+				// Error function
+				const geoError = error => {
+					// Will show if user blocks location tracking
+					if(error.code === error.PERMISSION_DENIED){
+						alert('Please allow application to view your current position for precise location matching. You may also use the location search function.');
+					}
+				}
+
+				// Browser supports geoloaction
+				// Get location in success function
+				navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+
+				if(lat && lon){
+					locationName();
+				}
+			}else{
+				// Alert user that browser lacks support for geolocation
+				alert('Geolocation does not appear to be supported in this browser.');
 			}
-		}else{
-			// Alert user that browser lacks support for geolocation
-			alert('Geolocation does not appear to be supported in this browser.');
 		}
 
 		// If we have latitude and longitude values we can get weather data
@@ -95,6 +94,7 @@ export default () => {
 		 * Use response template durring dev. To many unnecessary live API calls
 		*******************/
 		if(lat && lon){
+			locationName();
 			
 			const getWeatherData = async() => {
 				// Post request settings for data
@@ -110,6 +110,7 @@ export default () => {
 				};
 				
 				const response = await axios(settings);
+				console.log(response.data);
 				setWeatherData(response.data);
 			}
 
@@ -122,7 +123,7 @@ export default () => {
 
 	return(
 		<section id="gradient-container" className={`gradient ${tod} ${gradient}`}>
-			{/* <Header /> */}
+			<Header />
 			
 			<main className='container'>
 				{weatherData && <Weather /> }
