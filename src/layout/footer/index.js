@@ -8,7 +8,7 @@ export default () => {
 
     return(
         <footer>
-            <UnitSwitch />
+            
         </footer>
     )
 }
