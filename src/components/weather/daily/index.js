@@ -22,7 +22,7 @@ export default ({data}) => {
 			</div>
 			<div className='daily-icon'>
 				<i className={icon}></i>
-				{pop >= 1 && ` ${pop}%`}
+				{pop >= 1 && ` ${Math.floor(pop*100)}%`}
 			</div>
 			<div className='daily-temp'>
 				<span className='max-temp text-right'>{max}</span>
