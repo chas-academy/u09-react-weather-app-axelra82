@@ -2,6 +2,7 @@
 import React, { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
 
+import Pop from './pop';
 import Detail from './details';
 import Hourly from './hourly';
 import Daily from './daily';
@@ -162,7 +163,7 @@ export default () => {
 				</section>
 			</article>
 
-			<section id="weather-sunrise-sunset">
+			<article id="weather-sunrise-sunset">
 				<div>
 					<i className='wi wi-horizon-alt'></i>
 					{getTime(sunrise)}
@@ -171,9 +172,9 @@ export default () => {
 					<i className='wi wi-horizon'></i>
 					{getTime(sunset)}
 				</div>
-			</section>
+			</article>
 
-			<div id='weather-container-extras'>
+			<article id='weather-container-extras'>
 				<Detail content={{
 					icon: 'thermometer',
 					title: 'Feels like',
@@ -214,9 +215,14 @@ export default () => {
 					value: tempRound(currentDewPoint),
 					unit: 'deg'
 				}} />
-			</div>
+			</article>
+
+			<article id='weather-container-pop' className='mt-2'>
+				<h1 className='ts-medium fw-regular title-line'>Chance of rain</h1>
+				<Pop data={{hourly, getTime, tempRound}} />
+			</article>
 			
-			<article id='weather-container-hourly' className='mt-1'>
+			<article id='weather-container-hourly' className='mt-2'>
 				<h1 className='ts-medium fw-regular title-line'>12 hour forecast</h1>
 				<section id='horizontal-scroll-wrapper'>
 				{
@@ -272,6 +278,7 @@ export default () => {
 					})
 				}
 			</article>
+			
 		</section>
 	);
 }
