@@ -31,7 +31,7 @@ body{
 .title-line{
 	text-align: left;
 	overflow: hidden;
-
+	color: rgba($white, .5);
 
 	&:after {
 		left: 0.5em;
