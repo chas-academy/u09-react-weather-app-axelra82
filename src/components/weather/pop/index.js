@@ -9,13 +9,13 @@ export default ({data}) => {
     const {
         hourly,
         getTime,
-        tempRound,
     } = data;
     const lineChartLabels = [];
 	const lineChartValues = [];
 	hourly.forEach((item,idx) => {
         // Use modulus operator to get every n4 from array
-        if(idx % 6 === 0){
+        // if(idx % 6 === 0){
+        if(idx < 6){
             let label;
             if(idx === 0){
                 label = 'NOW';
@@ -23,7 +23,7 @@ export default ({data}) => {
                 label = getTime(item.dt, false, true, false);
             }
             lineChartLabels.push(label);
-            lineChartValues.push(tempRound(item.pop));
+            lineChartValues.push(Math.floor(item.pop*100));
         }
 	});
 
@@ -76,7 +76,7 @@ export default ({data}) => {
                 padding: {
                     left: 10,
                     right: 10,
-                    top: 20,
+                    top: 25,
                 }
             },
             legend: {
