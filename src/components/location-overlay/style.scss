@@ -1,0 +1,25 @@
+@import '../../styling/colors';
+
+#location-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: $dark;
+    background: linear-gradient($dark, rgba($dark, .85));
+    transform: translateY(-100vh);
+   
+    &.open{
+        display: flex;
+        align-items: center;
+        animation: zoomIn .25s ease-in forwards;
+        
+        @keyframes zoomIn {
+            to{
+                transform: translateY(0);
+            }
+        }
+    }
+}
