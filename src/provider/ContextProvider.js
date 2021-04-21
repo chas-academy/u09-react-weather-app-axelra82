@@ -39,8 +39,14 @@ const StoreContext = ({ children }) => {
 	const [gradient, setGradient] = useState(null);
 	const [weatherData, setWeatherData] = useState(null);
 
+	const [menuOpen, setMenuOpen] = useState(false);
+	const [searchLocation, setSearchLocation] = useState(false);
 	// Data will come from API request
 	const store = {
+		menuOpen,
+		setMenuOpen,
+		searchLocation,
+		setSearchLocation,
 		unit,
 		setUnit,
 		location: {
