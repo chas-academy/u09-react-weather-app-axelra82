@@ -1,0 +1,60 @@
+@import '../../styling/colors';
+
+$sizeW: 1.675rem;
+
+#burger-menu{
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: $sizeW;
+    height: 1.25rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 99;
+
+    div {
+        width: $sizeW;
+        height: 0.125rem;
+        background: $white;
+        transition: all 0.2s linear;
+        position: relative;
+        transform-origin: $sizeW/6;
+
+        &:first-child {
+            transform: rotate(0);
+        }
+
+        &:nth-child(2) {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        &:nth-child(3) {
+            transform: rotate(0);
+        }
+    }
+
+    &.open{
+
+        div{
+
+            &:first-child {
+               transform: rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                opacity:0;
+                transform: translateX(20px);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
