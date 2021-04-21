@@ -11,7 +11,7 @@ exports.handler = async data => {
     // We need these values to make the request
     const { lat, lon, unit } = JSON.parse(data.body);
 
-    const apiUrl = `${process.env.REACT_APP_OWM_API_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unit}&appid=${process.env.REACT_APP_OWM_API_KEY}`;
+    const apiUrl = `${process.env.REACT_APP_OWM_API_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unit}&exclude={minutely}&appid=${process.env.REACT_APP_OWM_API_KEY}`;
 
     try {
         // Responses
