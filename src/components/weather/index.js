@@ -27,6 +27,8 @@ export default () => {
 				setGradient
 			},
 			weatherData: {
+				timezone,
+				timezone_offset,
 				current: {
 					dt: currentTime,
 					temp: currentTemp,
@@ -49,30 +51,34 @@ export default () => {
 	const getTime = (timestamp = null, getDate = false, onlyHour = false, fullDay = false) => {
 
 		if(typeof timestamp !== 'undefined'){
-			const date = new Date(timestamp * 1000);
+			const localDateTime = (timestamp * 1000) + timezone_offset;
+			const date = new Date(localDateTime);
 			const locale = 'en-US';
 
 			const time = date
 			.toLocaleTimeString(
 				locale,
 				{
+					timeZone: timezone,
 					hour: '2-digit',
 					minute: '2-digit'
 				}
-			).toLowerCase();
+			);
 			
 			const timeHour = date
 			.toLocaleTimeString(
 				locale,
 				{
+					timeZone: timezone,
 					hour: '2-digit',
 				}
-			).toLowerCase();
+			);
 
 			const day = date
 			.toLocaleDateString(
 				locale,
 				{
+					timeZone: timezone,
 					weekday: fullDay ? 'long' : 'short',
 				}
 			);
@@ -110,20 +116,20 @@ export default () => {
 		icon: weatherIcon,
 	} = currentWeatherDetails[0];
 
-	// Use weather icon in response to determine if it's day or night
-	// Where d represents 'day' and n represents 'night'
-	const getTod = weatherIcon.includes('d') ? 'day' : 'night';
-
 	const tempRound = (temp) => {
 		return Math.floor(temp);
 	}
 
 	useEffect(() => {
+		// Use weather icon in response to determine if it's day or night
+		// Where d represents 'day' and n represents 'night'
+		const getTod = weatherIcon.includes('d') ? 'day' : 'night';
+
 		setTod(getTod);
 		setGradient(weatherTitle.toLowerCase());
 		
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [ weatherIcon, weatherTitle]);
 
 	return(
 		<section id='weather-container'>
@@ -219,7 +225,7 @@ export default () => {
 
 			<article id='weather-container-pop' className='mt-2'>
 				<h1 className='ts-medium fw-regular title-line'>Chance of rain</h1>
-				<Pop data={{hourly, getTime, tempRound}} />
+				<Pop data={{hourly, getTime}} />
 			</article>
 			
 			<article id='weather-container-hourly' className='mt-2'>
