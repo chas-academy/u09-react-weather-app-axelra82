@@ -32,25 +32,25 @@ exports.handler = async data => {
     
     try {
         // Response from request
-        const request = await axios(settings);
+        const response = await axios(settings);
         
         // Success object
         statusCode = 200;
         
         switch (direction) {
             case 'direct':
-                responseBody = JSON.stringify(request.data);
+                responseBody = response.data;
                 break;
     
             case 'reverse':
-                const responseData = request.data[0];
+                const responseData = response.data[0];
                 const countryName = countryList.data.find(country => country.code === responseData.country);
                 
-                responseBody = JSON.stringify({
+                responseBody = {
                     name: responseData.name,
                     country: countryName.name,
                     code: responseData.country,
-                });
+                };
 
                 break;
         }
@@ -64,6 +64,6 @@ exports.handler = async data => {
     // Return response
     return {
         statusCode: statusCode,
-        body: responseBody,
+        body: JSON.stringify(responseBody),
     }
 }
