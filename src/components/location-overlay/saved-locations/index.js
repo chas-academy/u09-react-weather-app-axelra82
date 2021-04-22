@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import StoreContext from '../../../context/StoreContext';
 
 import { getLocal, setLocal, twoDecimal } from '../../../helpers';
@@ -29,12 +29,17 @@ export default ({locations}) => {
         setMenuOpen(false);
     }
 
+    const [locationsState, setLocationsState] = useState(locations);
+    
     const removeLocation = index => {
-        const localState = getLocal();
-        const updatedLocations = locations.filter((item, idx) => idx !== index);
-
+        const updatedLocations = locationsState.filter((item, idx) => idx !== index);
+        
+        // State handling
+        setLocationsState(updatedLocations);
+        
+        // Data handling
         setLocal({
-            ...localState,
+            ...getLocal(),
             locations: updatedLocations
         });
     }
@@ -43,7 +48,7 @@ export default ({locations}) => {
         <article>
             <h1 className='h5 text-center'>Saved locations</h1>
             <ul className='overlay-list'>
-                {locations.map((item, idx) => {
+                {locationsState.map((item, idx) => {
                     const { lat, lon, name, country } = item;
                     return(
                         <li
