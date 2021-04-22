@@ -8,15 +8,14 @@ import { getLocal } from '../helpers';
 
 const StoreContext = ({ children }) => {
 
-	const getLocalStorage = getLocal();
 	// States used in store for global
-	// location, metric and data handling
+	
 	// @Units: metric | imperial | standard*
 	// * if no unit value is present durring api call standard will be used
 	const [unit, setUnit] = useState({
 		// Set unit according to local storage
 		// i.e. default to metric else get value
-		current: typeof getLocalStorage !== 'undefined' ? getLocalStorage.unit : 'metric',
+		current: typeof getLocal().unit !== 'undefined'  ? getLocal().unit : 'metric',
 		options: [
 			{
 				value: 'metric',
