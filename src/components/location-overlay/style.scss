@@ -23,4 +23,23 @@
             }
         }
     }
+
+    #overlay-options{
+        position: absolute;
+        display: flex;
+        top: .75rem;
+        right: 0;
+
+        .material-icons{
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: rgba($white, .5);
+            transition: .25s all;
+            
+            &:hover,
+            &.active{
+                color: $white;
+            }
+        }
+    }
 }
