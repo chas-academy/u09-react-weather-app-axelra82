@@ -1,67 +1,77 @@
 @import '../../styling/colors';
 
-$sizeW: 30px;
+$sizeW: 40px;
 
-#burger-menu{
+#top-left-menu{
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 1rem;
     left: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: $sizeW;
-    height: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
     z-index: 99;
 
-    div {
+    #burger-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         width: $sizeW;
-        height: 4px;
-        background: $white;
-        transition: all 0.2s linear;
-        position: relative;
-        transform-origin: $sizeW/10;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
 
-        &:first-child {
-            transform: rotate(0);
-        }
-
-        &:nth-child(2) {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        &:nth-child(3) {
-            transform: rotate(0);
-        }
-    }
-
-    &.open{
-
-        div{
+        div {
+            width: $sizeW;
+            height: 5px;
+            background: $white;
+            transition: all 0.2s linear;
+            position: relative;
+            transform-origin: $sizeW/8;
 
             &:first-child {
-               transform: rotate(45deg);
+                transform: rotate(0);
             }
 
             &:nth-child(2) {
-                opacity:0;
-                transform: translateX(20px);
+                opacity: 1;
+                transform: translateX(0);
             }
 
             &:nth-child(3) {
-                transform: rotate(-45deg);
+                transform: rotate(0);
+            }
+        }
+
+        &.open{
+
+            div{
+
+                &:first-child {
+                transform: rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity:0;
+                    transform: translateX(20px);
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                }
             }
         }
     }
-}
 
-#layout-save-icon{
-    position: fixed;
-    top: 2.5rem;
-    left: 1rem;
-    font-size: 1.5rem;
+    #layout-save-icon{
+        cursor: pointer;
+        margin-top: .5rem;
+        font-size: 1.25rem;
+        text-align: center;
+        z-index: 1;
+
+        &.hide{
+            display: none;
+        }
+    }
 }

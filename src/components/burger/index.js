@@ -39,7 +39,7 @@ export default () => {
     }
 
     return(
-        <>
+        <div id='top-left-menu'>
             <div
                 id='burger-menu'
                 className={isOpen ? 'open' : ''}
@@ -50,11 +50,11 @@ export default () => {
                 <div />  
             </div>
             
-            <span
+            <div
                 id='layout-save-icon'
-                className='material-icons'
+                className={`material-icons ${isOpen ? 'hide' : ''}`}
                 onClick={saveLocation}
-            >star</span>
-        </>
+            >star</div>
+        </div>
     );
 }
