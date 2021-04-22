@@ -20,18 +20,22 @@ export default () => {
         document.body.classList.toggle('scroll-lock');
     }
 
-    
     const saveLocation = () => {
-        console.log('save location function');
         const localState = getLocal();
-
-        setLocal({
-            ...localState,
-            locations: [
-                ...localState.locations,
-                location,
-            ]
-        });
+        // Test for existing entries before adding to list
+        const locationExists = localState.locations.some(li => li.lat === location.lat && li.lon === location.lon);
+       
+        if(!locationExists){
+            setLocal({
+                ...localState,
+                locations: [
+                    ...localState.locations,
+                    location,
+                ]
+            });
+        }else{
+            alert(`${location.name} with lat: ${location.lat} and lon: ${location.lon} is already in your saved locations.`)   
+        }
     }
 
     return(
