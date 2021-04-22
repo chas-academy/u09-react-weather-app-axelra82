@@ -30,4 +30,14 @@
             background: rgba($success, .9);
         }
     }
+
+}
+
+#multiple-results-list{
+    list-style: none;
+
+    li{
+        margin: .675rem 0;
+        cursor: pointer;
+    }
 }
