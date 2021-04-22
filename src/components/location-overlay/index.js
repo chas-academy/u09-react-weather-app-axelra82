@@ -17,14 +17,13 @@ export default () => {
 		}
 	} = useContext(StoreContext);
     
-    const [saved] = useState(getLocal());
+    const saved = getLocal();
 
     const [active, setActive] = useState('');
-    const [haveSaved, setHaveSaved] = useState(typeof saved === 'object' && saved.locations.length > 0);
+    const haveSaved = typeof saved === 'object' && saved.locations.length > 0;
 
 
-    useEffect(() => {
-        setHaveSaved(haveSaved);
+    useEffect(() => {    
         haveSaved ? setActive('list') : setActive('search');
     },[haveSaved])
 
