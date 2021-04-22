@@ -1,6 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 
+import { roundFloor } from '../../../helpers';
+
 import { Line } from 'react-chartjs-2';
 import * as Chart from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -23,7 +25,7 @@ export default ({data}) => {
                 label = getTime(item.dt, false, true, false);
             }
             lineChartLabels.push(label);
-            lineChartValues.push(Math.floor(item.pop*100));
+            lineChartValues.push(roundFloor(item.pop*100));
         }
 	});
 

@@ -2,6 +2,8 @@
 import React, { useContext, useEffect } from 'react';
 import StoreContext from '../../context/StoreContext';
 
+import { roundFloor } from '../../helpers';
+
 import Pop from './pop';
 import Detail from './details';
 import Hourly from './hourly';
@@ -116,10 +118,6 @@ export default () => {
 		icon: weatherIcon,
 	} = currentWeatherDetails[0];
 
-	const tempRound = (temp) => {
-		return Math.floor(temp);
-	}
-
 	useEffect(() => {
 		// Use weather icon in response to determine if it's day or night
 		// Where d represents 'day' and n represents 'night'
@@ -155,15 +153,15 @@ export default () => {
 				<section id='temp'>
 
 					<h2 id='temp-main'>
-						{tempRound(currentTemp)}&deg;
+						{roundFloor(currentTemp)}&deg;
 					</h2>
 
 					<div id='temp-hi-lo' className='ts-medium'>
 						<div id='temp-hi'>
-							H: {tempRound(todayMaxTemp)}&deg;
+							H: {roundFloor(todayMaxTemp)}&deg;
 						</div>
 						<div id='temp-lo'>
-							L: {tempRound(todayMinTemp)}&deg;
+							L: {roundFloor(todayMinTemp)}&deg;
 						</div>
 					</div>
 				</section>
@@ -184,7 +182,7 @@ export default () => {
 				<Detail content={{
 					icon: 'thermometer',
 					title: 'Feels like',
-					value: tempRound(currentFeelLike),
+					value: roundFloor(currentFeelLike),
 					unit: 'deg'
 				}} />
 
@@ -212,13 +210,13 @@ export default () => {
 				<Detail content={{
 					icon: 'day-sunny',
 					title: 'UV index',
-					value: tempRound(currentUvIndex)
+					value: roundFloor(currentUvIndex)
 				}} />
 
 				<Detail content={{
 					icon: 'raindrops',
 					title: 'Dew point',
-					value: tempRound(currentDewPoint),
+					value: roundFloor(currentDewPoint),
 					unit: 'deg'
 				}} />
 			</article>
@@ -243,7 +241,7 @@ export default () => {
 						} = itemWeather[0];
 						return <Hourly key={`hourly-${idx}`} data={{
 							time: idx === 0 ? 'NOW' : getTime(itemTime, false, true),
-							temp: `${tempRound(itemTemp)}\u00b0`,
+							temp: `${roundFloor(itemTemp)}\u00b0`,
 							icon: `wi wi-owm-${tod}-${itemWeatherId}`,
 						}} />;
 					})
@@ -274,11 +272,11 @@ export default () => {
 							return <Daily key={`daily-${idx}`} data={{
 								day: getTime(itemTime, true, false, true),
 								temp: {
-									min: `${tempRound(itemMinTemp)}`,
-									max: `${tempRound(itemMaxTemp)}`,
+									min: `${roundFloor(itemMinTemp)}`,
+									max: `${roundFloor(itemMaxTemp)}`,
 								},
 								icon: `wi wi-owm-${tod}-${itemWeatherId}`,
-								pop: tempRound(pop),
+								pop: roundFloor(pop),
 							}} />;
 						}
 					})

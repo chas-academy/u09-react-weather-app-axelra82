@@ -1,6 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 
+import { roundFloor } from '../../../helpers';
+
 import './style.scss';
 
 export default ({data}) => {
@@ -22,7 +24,7 @@ export default ({data}) => {
 			</div>
 			<div className='daily-icon'>
 				<i className={icon}></i>
-				{pop >= 1 && ` ${Math.floor(pop*100)}%`}
+				{pop >= 1 && ` ${roundFloor(pop*100)}%`}
 			</div>
 			<div className='daily-temp'>
 				<span className='max-temp text-right'>{max}</span>
