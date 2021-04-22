@@ -1,4 +1,6 @@
+@import '../../styling/media';
 @import '../../styling/colors';
+@import '../../styling/typography';
 
 #location-overlay{
     position: fixed;
@@ -13,8 +15,7 @@
     z-index: 98;
    
     &.open{
-        display: flex;
-        align-items: center;
+        display: block;
         animation: zoomIn .25s ease-in forwards;
         
         @keyframes zoomIn {
@@ -39,6 +40,39 @@
             &:hover,
             &.active{
                 color: $white;
+            }
+        }
+    }
+
+    .container{
+        padding-top: 3rem;
+        height: 100vh;
+        overflow-y: scroll;
+        
+        .overlay-list{
+            list-style: none;    
+
+            li{
+                position: relative;
+                padding: 1rem 2rem;
+                margin: 0 -1rem;
+                
+                &:nth-child(odd){
+                    background: rgba($black, .25);
+                }
+                
+                &:nth-child(even){
+                    background: rgba($black, .15);
+                }
+
+                .material-icons{
+                    position: absolute;
+                    top: .5rem;
+                    right: 1rem;
+                    padding: 1rem;
+                    z-index: 999;
+                    @extend .ts-medium;
+                }
             }
         }
     }

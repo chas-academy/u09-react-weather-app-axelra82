@@ -4,8 +4,6 @@ import StoreContext from '../../../context/StoreContext';
 
 import { getLocal, setLocal, twoDecimal } from '../../../helpers';
 
-import './style.scss';
-
 export default ({locations}) => {
 
     const {
@@ -44,7 +42,7 @@ export default ({locations}) => {
     return(
         <article>
             <h1 className='h5 text-center'>Saved locations</h1>
-            <ul id='overlay-saved-locations-list'>
+            <ul className='overlay-list'>
                 {locations.map((item, idx) => {
                     const { lat, lon, name, country } = item;
                     return(
