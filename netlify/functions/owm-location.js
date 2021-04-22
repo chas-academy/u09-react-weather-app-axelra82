@@ -1,6 +1,6 @@
 'use strict';
 const axios = require('axios');
-const countryList = require('../../country-names.json');
+const countryList = require('../../src/helpers/country-names.json');
 
 exports.handler = async data => {
 
@@ -44,6 +44,7 @@ exports.handler = async data => {
     
             case 'reverse':
                 const responseData = response.data[0];
+                // ES6 import/export not allowed, so we can't use helper function countrCodeName
                 const countryName = countryList.data.find(country => country.code === responseData.country);
                 
                 responseBody = {
