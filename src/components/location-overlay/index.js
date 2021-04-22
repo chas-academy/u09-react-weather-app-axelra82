@@ -17,7 +17,7 @@ export default () => {
 		}
 	} = useContext(StoreContext);
     
-    const [saved, setSaved] = useState(getLocal());
+    const [saved] = useState(getLocal());
 
     const [active, setActive] = useState('');
     const [haveSaved, setHaveSaved] = useState(typeof saved === 'object' && saved.locations.length > 0);
