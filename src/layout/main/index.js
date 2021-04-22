@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import StoreContext from '../../context/StoreContext';
 import axios from 'axios';
 
@@ -28,7 +28,6 @@ export default () => {
                 tod,
                 gradient
             },
-			weatherData,
 			setWeatherData,
 		}
 	} = useContext(StoreContext);
@@ -53,6 +52,8 @@ export default () => {
 		setCountry(firstResult.country);
 		setName(firstResult.name);
 	}
+
+	const [isLoading, setIsLoading] = useState(true);
 
 	// useEffect for component life cycle behavior
 	useEffect(() => {
@@ -111,21 +112,33 @@ export default () => {
 				
 				const response = await axios(settings);
 				setWeatherData(response.data);
+
+				// Use time out to make app less "jumpy/glitchy"
+				setTimeout(() => {		
+					setIsLoading(false);
+				}, 500);
 			}
 
 			getWeatherData();
 		}
-
+		
 		// Only resubcscribe on change in variables
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [lat, lon, currentUnit]);
-
+	
 	return(
-		<section id="gradient-container" className={`gradient ${tod} ${gradient}`}>
-			<Header />
+		<section id='gradient-container' className={`gradient ${tod} ${gradient}`}>
+			{ !isLoading && <Header /> }
 			
 			<main className='container'>
-				{weatherData && <Weather /> }
+				{ isLoading ?
+					<article id='loading-screen' className='text-center text-black'>
+						<h1>Calling Thor <i className='wi wi-lightning text-black'></i></h1>
+						<p className='ts-small'>Getting latest weather data</p>
+					</article>
+				:
+					<Weather />
+				}
 			</main>
 
 			<Footer />
