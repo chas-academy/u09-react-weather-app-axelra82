@@ -51,10 +51,10 @@ Then save and exit. Your environment setup is now done!
 ## Requirements
 
 User must be able to see weather conditions for:
-- [x] Temperature
-- [x] Wind
-- [x] Humidity
-- [x] Sunrise/sunset (time)
+- [x] temperature
+- [x] wind
+- [x] humidity
+- [x] sunrise/sunset (time)
 - [x] switch between celsius (c) and farenheit (f)
 - [x] get weather forecast (with above details) 5 days ahead:
     - [x] short weekly summary
@@ -68,13 +68,13 @@ App must also:
 
 ## Extra (optional)
 
-- [ ] search for weather on specific location
-- [ ] save locations
-- [ ] graphs for:
-  - [ ] high/low temperatures
-  - [ ] average high/low temperatures
-- [ ] weather front on a radar map
-- [ ] average precipitation
+- [x] search for weather on specific location
+- [x] save locations
+- ~~[ ] graphs for:~~
+  - ~~[ ] high/low temperatures~~
+  - ~~[ ] average high/low temperatures~~
+- ~~[ ] weather front on a radar map~~
+- [x] ~ average precipitation (showing PoP)
 
 # Hand in
 
