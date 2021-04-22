@@ -20,6 +20,12 @@ body {
 	color: $white;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+	border-bottom: 1px dashed;
+	font-weight: 400;
+}
 // Headings
 @for $i from 1 through 6 {
 	h#{$i} {
