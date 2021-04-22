@@ -5,7 +5,7 @@ import StoreContext from '../../context/StoreContext';
 import { getLocal } from '../../helpers';
 
 import SavedList from './saved-locations';
-import Search from '../search';
+import Search from './search';
 
 import './style.scss';
 
