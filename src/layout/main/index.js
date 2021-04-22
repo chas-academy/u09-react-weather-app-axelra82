@@ -110,7 +110,6 @@ export default () => {
 				};
 				
 				const response = await axios(settings);
-				console.log(response.data);
 				setWeatherData(response.data);
 			}
 
