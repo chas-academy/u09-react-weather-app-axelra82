@@ -34,7 +34,7 @@ export default () => {
                 ]
             });
         }else{
-            alert(`${location.name} with lat: ${location.lat} and lon: ${location.lon} is already in your saved locations.`)   
+            alert(`${location.name} with lat: ${location.lat} and lon: ${location.lon} is already in your saved locations. Try refreshing the page if you can't see it.`)   
         }
     }
 
